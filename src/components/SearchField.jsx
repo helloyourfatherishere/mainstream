@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
 var btn={
     height: '2vh',
-    width: '120%'
+    width: '130%'
 }
 
 const SearchField = () => {
