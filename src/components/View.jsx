@@ -172,7 +172,7 @@ const View = () => {
 } 
     useEffect(()=>{
         var findData= async function(){
-            console.log(document.cookie)
+            console.log(document)
             try{
                 let data= await fetch(`https://tmword.herokuapp.com/view/${id}`);
                 let res= await data.json();
