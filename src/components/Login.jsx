@@ -40,6 +40,7 @@ const Login = () => {
                         method: 'post',
                         headers: {"Content-Type": "application/json"},
                         body:JSON.stringify({email, pass}),
+                        withCredentials: true,
                     });
                     let res= await data.json();
                     console.log(res)
