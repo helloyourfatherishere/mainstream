@@ -12,8 +12,8 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 var btn={
-    height: '2vh',
-    width: '130%'
+    height: '10vh',
+    width: '150%'
 }
 
 const SearchField = () => {
@@ -27,7 +27,7 @@ const SearchField = () => {
                 </form>
         </div>
             
-            <SearchIcon onClick={()=>{var s= document.querySelector(".s"); s.style.display= 'flex';}}></SearchIcon>
+            <SearchIcon id="a" onClick={()=>{var s= document.querySelector(".s"); s.style.display= 'flex';}} className="a"></SearchIcon>
         </>
     )
 }

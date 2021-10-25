@@ -20,13 +20,13 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
   var buttons={
-    margin:'.5% .05%',
-    width: '80%',
-    height: '5vh'
+    margin:'.5% 5%',
+    width: '90%',
+    height: '5vh',
 };
 var btn={
     height: '4vh',
-    width: '100%'
+    width: '100%',
 };
 const Nav = ({verify}) => {
     const classes = useStyles();
@@ -60,7 +60,7 @@ const Nav = ({verify}) => {
                 <div className="opt">
                     <div className="links">
                         <div className={classes.root} id="link">
-                            <Button style={buttons} id="search_icon" onClick={()=>{
+                            <Button style={{height:"50px",position:"relative",left:"15px",}} id="search_icon" onClick={()=>{
                                 var s= document.querySelector(".s"); 
                                 var nav= document.querySelector(".nav");
                                 nav.style.display="none";
