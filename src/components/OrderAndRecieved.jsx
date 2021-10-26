@@ -13,8 +13,10 @@ const OrderAndRecieved = () => {
         if(type==="order" || type==="recieved"){
             var find= async function(){
                 try{
-                    var fetch_user= await fetch("https://tmword.herokuapp.com/verify_user");
-                    var data= await fetch(`https://tmword.herokuapp.com/u/${type}`);
+                    // var fetch_user= await fetch("https://tmword.herokuapp.com/verify_user");
+                    // var data= await fetch(`https://tmword.herokuapp.com/u/${type}`);
+                    var fetch_user= await fetch("/verify_user");
+                    var data= await fetch(`/u/${type}`);
                     let verified= await fetch_user.json();
                     var res= await data.json();
                     setProduct(res.product)
@@ -41,7 +43,7 @@ const OrderAndRecieved = () => {
             history.push("/");
         }
     },[type]);
-    if(product||product.length===0){
+    if(!product||product.length===0){
         return(
             <>
             <Nav></Nav>

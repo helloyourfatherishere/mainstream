@@ -37,15 +37,22 @@ const Cart = () => {
     useEffect(()=>{
         var findCart= async function(){
             try{
-                let data= await fetch("https://tmword.herokuapp.com/u/cart",{
-                    method: 'POST',
-                    mode: "no-cors",
+                // let data= await fetch("https://tmword.herokuapp.com/u/cart",{
+                //     method: 'POST',
+                //     mode: "no-cors",
+                //     headers:  {"Content-Type": "application/json"},
+                // })
+                
+                let data= await fetch("/u/cart",{
+                    method: 'post',
                     headers:  {"Content-Type": "application/json"},
+                    body:""
                 })
                 let res= await data.json();
-                console.log(data)
-                let verify= await fetch("https://tmword.herokuapp.com/verify_user")
-                let v= verify.json();
+
+                // let verify= await fetch("https://tmword.herokuapp.com/verify_user")
+                let verify= await fetch("/verify_user")
+                let v= await verify.json();
                 let verified= v.verify_user;
                 if(verified){
                     if(!res){

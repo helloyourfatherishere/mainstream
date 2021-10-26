@@ -20,7 +20,13 @@ const Search = () => {
                 var values= s.join(" ")
                 var value= JSON.stringify(values)
                 setSearchValue(value)
-                var res= await fetch("https://tmword.herokuapp.com/search", {
+                // var res= await fetch("https://tmword.herokuapp.com/search", {
+                //     method:"post", 
+                //     headers: {"Content-Type": "Application/json"},
+                //     body: JSON.stringify({values})
+                // });
+                
+                var res= await fetch("/search", {
                     method:"post", 
                     headers: {"Content-Type": "Application/json"},
                     body: JSON.stringify({values})

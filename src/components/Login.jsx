@@ -36,7 +36,14 @@ const Login = () => {
         if(verify_email && verify_pass){
             var find_user= async function(){
                 try{
-                    var data= await fetch(`https://tmword.herokuapp.com/signin`,{
+                    // var data= await fetch(`https://tmword.herokuapp.com/signin`,{
+                    //     method: 'post',
+                    //     headers: {"Content-Type": "application/json"},
+                    //     body:JSON.stringify({email, pass}),
+                    //     withCredentials: true,
+                    // });
+                    
+                    var data= await fetch(`/signin`,{
                         method: 'post',
                         headers: {"Content-Type": "application/json"},
                         body:JSON.stringify({email, pass}),
@@ -58,8 +65,7 @@ const Login = () => {
                         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
                     }
                 }
-                catch(e){                
-                        console.log(e)
+                catch(e){             
                 }
             };
             find_user();

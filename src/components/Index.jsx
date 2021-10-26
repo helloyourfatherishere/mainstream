@@ -36,9 +36,10 @@ const Index= function(){
         var f= async function(){
             try{
                 var res= await fetch("https://tmword.herokuapp.com/api")
-                // var b = await res.text()
-                // console.log(res)
+                // var res= await fetch("/api")
+                // var a = await res.text()
                 var a= await res.json();
+                console.log(a)
                 // var a= await res.json();
                 // var a= JSON.parse(res); 
                 setPants(a[0])

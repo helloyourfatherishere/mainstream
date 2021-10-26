@@ -174,7 +174,8 @@ const View = () => {
         var findData= async function(){
             console.log(document)
             try{
-                let data= await fetch(`https://tmword.herokuapp.com/view/${id}`);
+                // let data= await fetch(`https://tmword.herokuapp.com/view/${id}`);
+                let data= await fetch(`/view/${id}`);
                 let res= await data.json();
                 setFind(res.find)
                 if(res.find){

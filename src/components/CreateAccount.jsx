@@ -60,7 +60,13 @@ const CreateAccount = () => {
       if(verify_email && verify_pass && verify_security_code){
           var signup= async function(){
             try{
-              var data= await fetch("https://tmword.herokuapp.com/signup",{
+              // var data= await fetch("https://tmword.herokuapp.com/signup",{
+              //   method: "post",
+              //   headers: {"Content-Type": "application/json"},
+              //   body: JSON.stringify({email, pass, name, contact_email, phone, address, security_code})
+              // });
+              
+              var data= await fetch("/signup",{
                 method: "post",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({email, pass, name, contact_email, phone, address, security_code})

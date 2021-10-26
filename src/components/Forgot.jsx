@@ -118,6 +118,8 @@ const Forgot = () => {
                 let verify_user_login= await fetch("/verify_user");
                 let res_verify_user= await verify_user_login.json();
                 let verifyUser=res_verify_user.verify_user
+                if(verifyUser){
+                    
                 if(cate==="pass"){
                     setPlace("Security Code")
                     setHeading("Reset Password")
@@ -133,6 +135,24 @@ const Forgot = () => {
                     setId("pass")
                     setResetPlace("add new security code")
                     setResetId("changedData")
+                }
+                }
+                else{
+                    if(cate==="security_code"){
+                        setPlace("Password")
+                        setHeading("Reset Security Code")
+                        setMessage("Add your Email And Password to reset your Security Code")
+                        setId("pass")
+                        setResetPlace("add new security code")
+                        setResetId("changedData")
+                    }
+                    else{
+                        var x = document.getElementById("snackbar");
+                        x.className = "show";
+                        x.textContent="login first"
+                        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                        setTimeout(()=>{history.push("/login")}, 1000)
+                    }
                 }
               
             }
@@ -183,7 +203,7 @@ const Forgot = () => {
                 </div>
                 </div>
                 
-            <div id="snackbar">logged out</div>
+            <div id="snackbar"></div>
         </>
     )
 }
