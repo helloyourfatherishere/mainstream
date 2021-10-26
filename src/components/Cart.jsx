@@ -97,8 +97,10 @@ const Cart = () => {
 var cancel= async function(p_id){
     let i=0
     try{
-        let data= await fetch(`/removeCart/${userId}/${p_id}`,{
-            method:"POSt",
+        let data= await fetch(`https://tmword.herokuapp.com/removeCart/${userId}/${p_id}`,{
+            method:"post",
+            mode:"cors",
+            credentials:"include",
             headers: {"Content-Type": "application/json"},
             body: ""
         })
