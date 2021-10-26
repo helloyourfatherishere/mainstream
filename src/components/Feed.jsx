@@ -61,8 +61,10 @@ const Feed = () => {
                 let m= message
                 var sendMessage= async function(){
                     try{
-                        let data=await  fetch(`/feed/${sub}`,{
-                            method: 'POST',
+                        let data=await  fetch(`https://tmword.herokuapp.com/feed/${sub}`,{
+                            method: 'post',
+                            mode:"cors",
+                            credentials:"include",
                             headers: {"Content-Type": "application/json"},
                             body: JSON.stringify({email : e, message: m})
                         });
