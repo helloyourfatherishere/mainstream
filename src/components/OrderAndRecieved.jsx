@@ -13,10 +13,18 @@ const OrderAndRecieved = () => {
         if(type==="order" || type==="recieved"){
             var find= async function(){
                 try{
-                    // var fetch_user= await fetch("https://tmword.herokuapp.com/verify_user");
-                    // var data= await fetch(`https://tmword.herokuapp.com/u/${type}`);
-                    var fetch_user= await fetch("/verify_user");
-                    var data= await fetch(`/u/${type}`);
+                    var fetch_user= await fetch("https://tmword.herokuapp.com/verify_user",{
+                        method:"get",
+                        mode:"cors",
+                        credentials:"include"
+                    });
+                    var data= await fetch(`https://tmword.herokuapp.com/u/${type}`,{
+                        method:"get",
+                        mode:"cors",
+                        credentials:"include"
+                    });
+                    // var fetch_user= await fetch("/verify_user");
+                    // var data= await fetch(`/u/${type}`);
                     let verified= await fetch_user.json();
                     var res= await data.json();
                     setProduct(res.product)
