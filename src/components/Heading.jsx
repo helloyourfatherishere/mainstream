@@ -87,7 +87,7 @@ const Heading = ({data}) => {
     var add= async function(){
         try{
             let d= await fetch(`https://tmword.herokuapp.com/addtocart/${data._id}`,{
-                method: 'post',
+                method:'post',
                 mode:"cors",
                 credentials:"include",
                 headers:{"Content-Type": "application/json"},
@@ -114,7 +114,6 @@ const Heading = ({data}) => {
             }
             else{
                 var x = document.getElementById("snackbar");
-                console.log(x)
                 x.className = "show";
                 x.textContent="Login First"
                 setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);

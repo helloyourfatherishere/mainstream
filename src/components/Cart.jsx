@@ -50,8 +50,12 @@ const Cart = () => {
                 })
                 let res= await data.json();
 
-                // let verify= await fetch("https://tmword.herokuapp.com/verify_user")
-                let verify= await fetch("/verify_user")
+                let verify= await fetch("https://tmword.herokuapp.com/verify_user",{
+                    method:"get",
+                    mode:"cors",
+                    credentials:"include"
+                })
+                // let verify= await fetch("/verify_user")
                 let v= await verify.json();
                 let verified= v.verify_user;
                 if(verified){
