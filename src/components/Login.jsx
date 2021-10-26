@@ -51,7 +51,6 @@ const Login = () => {
                     //     withCredentials: true,
                     // });
                     let res= await data.json();
-                    console.log(res)
                     if(res.status){
                         var x = document.getElementById("snackbar");
                         x.className = "show";

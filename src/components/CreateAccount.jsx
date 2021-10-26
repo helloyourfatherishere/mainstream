@@ -73,9 +73,7 @@ const CreateAccount = () => {
               //   headers: {"Content-Type": "application/json"},
               //   body: JSON.stringify({email, pass, name, contact_email, phone, address, security_code})
               // });
-              console.log(data)
               let res= await data.json();
-              console.log(res)
               if(res){
                 history.push("/login")
               }

@@ -105,7 +105,6 @@ var cancel= async function(p_id){
             body: ""
         })
         let res= await data.json();
-        console.log(res)
         setRemove(p_id)
     }
     catch(e){

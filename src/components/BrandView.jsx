@@ -15,7 +15,13 @@ const BrandView = () => {
         setValue(brand_name)
             var findCate= async function(){
                 try{
-                    var res= await fetch(`https://tmword.herokuapp.com/b/${brand_name}`);
+                    var res= await fetch(`https://tmword.herokuapp.com/b/${brand_name}`,{
+                        method:"post",
+                        mode:"cors",
+                        credentials:"include",
+                        headers:{"Content-Type":"application/json"},
+                        body:""
+                    });
                     var data= await res.json();
                     setData(data)
                 }

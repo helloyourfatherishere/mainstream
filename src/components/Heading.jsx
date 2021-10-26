@@ -99,7 +99,6 @@ const Heading = ({data}) => {
             //     body:""
             // })
             let res= await d.json();
-            console.log(res)
             if(res.status && res.type==="add"){
                 var x = document.getElementById("snackbar");
                 x.className = "show";

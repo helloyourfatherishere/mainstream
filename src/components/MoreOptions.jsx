@@ -15,7 +15,6 @@ const MoreOptions = () => {
             
             // let data= await fetch("/logout");
             let res= await data.json();
-            console.log(res)
             if(!res){
                 var x = document.getElementById("snackbar");
                 x.className = "show";
