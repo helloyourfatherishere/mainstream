@@ -36,19 +36,20 @@ const Login = () => {
         if(verify_email && verify_pass){
             var find_user= async function(){
                 try{
-                    // var data= await fetch(`https://tmword.herokuapp.com/signin`,{
+                    var data= await fetch(`https://tmword.herokuapp.com/signin`,{
+                        method: 'post',
+                        mode:"cors",
+                        credentials:"include",
+                        headers: {"Content-Type": "application/json"},
+                        body:JSON.stringify({email, pass}),
+                    });
+                    
+                    // var data= await fetch(`/signin`,{
                     //     method: 'post',
                     //     headers: {"Content-Type": "application/json"},
                     //     body:JSON.stringify({email, pass}),
                     //     withCredentials: true,
                     // });
-                    
-                    var data= await fetch(`/signin`,{
-                        method: 'post',
-                        headers: {"Content-Type": "application/json"},
-                        body:JSON.stringify({email, pass}),
-                        withCredentials: true,
-                    });
                     let res= await data.json();
                     console.log(res)
                     if(res.status){
@@ -101,7 +102,7 @@ const Login = () => {
                 </div>
             </div>
             
-            <div id="snackbar">logged out</div>
+            <div id="snackbar"></div>
         </>
     )
 }
