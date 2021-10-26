@@ -184,8 +184,6 @@ const View = () => {
                 });
                 // let data= await fetch(`/view/${id}`);
                 let res= await data.json();
-                console.log(data)
-                console.log(res)
                 setFind(res.find)
                 if(res.find){
                     setData(res.data)
