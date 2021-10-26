@@ -86,16 +86,18 @@ const Heading = ({data}) => {
   }, [])
     var add= async function(){
         try{
-            // let d= await fetch(`https://tmword.herokuapp.com/addtocart/${data._id}`,{
+            let d= await fetch(`https://tmword.herokuapp.com/addtocart/${data._id}`,{
+                method: 'post',
+                mode:"cors",
+                credentials:true,
+                headers:{"Content-Type": "application/json"},
+                body:""
+            })
+            // let d= await fetch(`/addtocart/${data._id}`,{
             //     method: 'post',
             //     headers:{"Content-Type": "application/json"},
             //     body:""
             // })
-            let d= await fetch(`/addtocart/${data._id}`,{
-                method: 'post',
-                headers:{"Content-Type": "application/json"},
-                body:""
-            })
             let res= await d.json();
             console.log(res)
             if(res.status && res.type==="add"){
