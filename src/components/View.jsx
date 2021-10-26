@@ -96,7 +96,7 @@ async function place(e){
     let o= await fetch("https://tmword.herokuapp.com/order/unregistered",{
         method: 'post',
         mode:"cors",
-        credentials:true,
+        credentials:"include",
         headers:{"Content-Type": "application/json"},
         body:JSON.stringify({paymentMethod, id, price, img, title, quantity, colors, sizes, message, name, email, phone, whatsapp, address}) 
 
@@ -152,7 +152,7 @@ const View = () => {
                 method: 'post',
                 headers:{"Content-Type": "application/json"},
                 mode:"cors",
-                credentials:true,
+                credentials:"include",
                 body:JSON.stringify({comment: com.value}) 
 
             })
@@ -180,7 +180,7 @@ const View = () => {
                 let data= await fetch(`https://tmword.herokuapp.com/view/${id}`,{
                     method:"get",
                     mode:"cors",
-                    credentials:true
+                    credentials:"include"
                 });
                 // let data= await fetch(`/view/${id}`);
                 let res= await data.json();

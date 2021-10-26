@@ -89,7 +89,7 @@ const Heading = ({data}) => {
             let d= await fetch(`https://tmword.herokuapp.com/addtocart/${data._id}`,{
                 method: 'post',
                 mode:"cors",
-                credentials:true,
+                credentials:"include",
                 headers:{"Content-Type": "application/json"},
                 body:""
             })
