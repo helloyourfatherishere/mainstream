@@ -7,9 +7,13 @@ const MoreOptions = () => {
     var history= useHistory();
     var logout = async function(){
         try{
-            // let data= await fetch("https://tmword.herokuapp.com/logout");
+            let data= await fetch("https://tmword.herokuapp.com/logout",{
+                method:"get",
+                mode:"cors",
+                credentials:"include"
+            });
             
-            let data= await fetch("/logout");
+            // let data= await fetch("/logout");
             let res= await data.json();
             console.log(res)
             if(!res){

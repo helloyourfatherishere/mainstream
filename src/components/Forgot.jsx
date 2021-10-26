@@ -38,8 +38,10 @@ const Forgot = () => {
         if(verify_email){
             var signin= async function(){
                 try{
-                    var data= await fetch(`/forgot/${cate}`,{
-                        method: 'POST',
+                    var data= await fetch(`https://tmword.herokuapp.com/forgot/${cate}`,{
+                        method: 'post',
+                        mode:"cors",
+                        credentials:"include",
                         headers:{"Content-Type": "application/json"},
                         body:JSON.stringify({email, changeData})
                     });
@@ -74,8 +76,10 @@ const Forgot = () => {
             var changedData= document.querySelector("#changedData").value;
             if(cate==="pass"){
                 if(changedData.length>=8){
-                    let resetData= await fetch(`/change/${cate}/${email}`,{
-                        method: 'POST',
+                    let resetData= await fetch(`https://tmword.herokuapp.com/change/${cate}/${email}`,{
+                        method: 'post',
+                        mode:"cors",
+                        credentials:"include",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify({changedData})
                     });
@@ -93,8 +97,10 @@ const Forgot = () => {
             }
             else{
                 if(changedData.length===4){
-                    let resetData= await fetch(`/change/${cate}/${email}` ,{
-                        method: 'POST',
+                    let resetData= await fetch(`https://tmword.herokuapp.com/change/${cate}/${email}` ,{
+                        method: 'post',
+                        mode:"cors",
+                        credentials:"include",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify({changedData})
                     });
@@ -115,7 +121,10 @@ const Forgot = () => {
     useEffect(()=>{
         var verify= async function(){
             try{
-                let verify_user_login= await fetch("/verify_user");
+                let verify_user_login= await fetch("https://tmword.herokuapp.com/verify_user",{
+                    method:"get",
+                    mode:"cors",
+                    credentials:"include",});
                 let res_verify_user= await verify_user_login.json();
                 let verifyUser=res_verify_user.verify_user
                 if(verifyUser){

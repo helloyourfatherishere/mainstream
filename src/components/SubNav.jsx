@@ -8,6 +8,8 @@ const SubNav = () => {
             try{
                 let data= await fetch("https://tmword.herokuapp.com/main",{
                     method:'post',
+                    mode:"cors",
+                    credentials:"include",
                     headers:{"Content-Type": "application/json"},
                     body: ""
                 });
