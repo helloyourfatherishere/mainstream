@@ -176,7 +176,6 @@ const View = () => {
 } 
     useEffect(()=>{
         var findData= async function(){
-            console.log(document)
             try{
                 let data= await fetch(`https://tmword.herokuapp.com/view/${id}`,{
                     method:"get",
@@ -185,6 +184,8 @@ const View = () => {
                 });
                 // let data= await fetch(`/view/${id}`);
                 let res= await data.json();
+                console.log(data)
+                console.log(res)
                 setFind(res.find)
                 if(res.find){
                     setData(res.data)
