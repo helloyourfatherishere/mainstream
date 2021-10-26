@@ -19,9 +19,12 @@ const OrderAndRecieved = () => {
                         credentials:"include"
                     });
                     var data= await fetch(`https://tmword.herokuapp.com/u/${type}`,{
-                        method:"get",
+                        method:"post",
                         mode:"cors",
-                        credentials:"include"
+                        credentials:"include",
+                        headers:{"Content-Type":"application/json"},
+                        body:""
+                        
                     });
                     // var fetch_user= await fetch("/verify_user");
                     // var data= await fetch(`/u/${type}`);

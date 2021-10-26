@@ -14,7 +14,11 @@ const CategoryView = () => {
         setValue(cate)
             var findCate= async function(){
                 try{
-                    var res= await fetch(`https://tmword.herokuapp.com/cate/${cate}`);
+                    var res= await fetch(`https://tmword.herokuapp.com/cate/${cate}`,{
+                        method:"get",
+                        mode:"cors",
+                        credentials:"include"
+                    });
                     var data= await res.json();
                     setData(data)
                 }
