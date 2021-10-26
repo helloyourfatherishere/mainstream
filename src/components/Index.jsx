@@ -43,7 +43,6 @@ const Index= function(){
                 // var res= await fetch("/api")
                 // var a = await res.text()
                 var a= await res.json();
-                console.log(a)
                 // var a= await res.json();
                 // var a= JSON.parse(res); 
                 setPants(a[0])

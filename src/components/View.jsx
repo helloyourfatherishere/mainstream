@@ -93,8 +93,10 @@ async function place(e){
 
     let orderDiv= document.getElementById("orderDetails");
     orderDiv.style.display="none"
-    let o= await fetch("/order/unregistered",{
-        method: 'POST',
+    let o= await fetch("https://tmword.herokuapp.com/order/unregistered",{
+        method: 'post',
+        mode:"cors",
+        credentials:true,
         headers:{"Content-Type": "application/json"},
         body:JSON.stringify({paymentMethod, id, price, img, title, quantity, colors, sizes, message, name, email, phone, whatsapp, address}) 
 
@@ -146,9 +148,11 @@ const View = () => {
         try{
             let com= document.getElementById("comment")
             let comment= com.value
-            let d= await fetch(`/comment/${id}`,{
-                method: 'POST',
+            let d= await fetch(`https://tmword.herokuapp.com/comment/${id}`,{
+                method: 'post',
                 headers:{"Content-Type": "application/json"},
+                mode:"cors",
+                credentials:true,
                 body:JSON.stringify({comment: com.value}) 
 
             })
@@ -174,8 +178,12 @@ const View = () => {
         var findData= async function(){
             console.log(document)
             try{
-                // let data= await fetch(`https://tmword.herokuapp.com/view/${id}`);
-                let data= await fetch(`/view/${id}`);
+                let data= await fetch(`https://tmword.herokuapp.com/view/${id}`,{
+                    method:"get",
+                    mode:"cors",
+                    credentials:true
+                });
+                // let data= await fetch(`/view/${id}`);
                 let res= await data.json();
                 setFind(res.find)
                 if(res.find){
