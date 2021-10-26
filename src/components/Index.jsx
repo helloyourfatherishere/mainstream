@@ -35,7 +35,11 @@ const Index= function(){
     useEffect(()=>{
         var f= async function(){
             try{
-                var res= await fetch("https://tmword.herokuapp.com/api")
+                var res= await fetch("https://tmword.herokuapp.com/api",{
+                    method:"get",
+                    mode:"cors",
+                    credentials:"include"
+                })
                 // var res= await fetch("/api")
                 // var a = await res.text()
                 var a= await res.json();
