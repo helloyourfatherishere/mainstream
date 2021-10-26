@@ -37,17 +37,18 @@ const Cart = () => {
     useEffect(()=>{
         var findCart= async function(){
             try{
-                // let data= await fetch("https://tmword.herokuapp.com/u/cart",{
-                //     method: 'POST',
-                //     mode: "no-cors",
-                //     headers:  {"Content-Type": "application/json"},
-                // })
-                
-                let data= await fetch("/u/cart",{
+                let data= await fetch("https://tmword.herokuapp.com/u/cart",{
                     method: 'post',
+                    mode: "cors",
+                    credentials:"include",
                     headers:  {"Content-Type": "application/json"},
-                    body:""
                 })
+                
+                // let data= await fetch("/u/cart",{
+                //     method: 'post',
+                //     headers:  {"Content-Type": "application/json"},
+                //     body:""
+                // })
                 let res= await data.json();
 
                 let verify= await fetch("https://tmword.herokuapp.com/verify_user",{
