@@ -352,7 +352,7 @@ function det(){
         
                 <div className="orderDetails" id="orderDetails">
                     {/* <form action={`/order/register/${userId}`} method="post"> */}
-                    <form action="#">
+                    <form action="#" onSubmit={(e)=>{e.preventDefault()}}>
                     <div className="cart_order_head">
                             <div className="cart_total">
                             </div>  
