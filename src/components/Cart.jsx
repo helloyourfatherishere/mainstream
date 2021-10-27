@@ -171,7 +171,31 @@ function det(){
         orderDet.style.display="none";
     }
     async function purhcase(){
-        alert()
+        try{
+            alert("hello")
+            let name=document.getElementById("nameInfo");
+            let email=document.getElementById("emailInfo");
+            let phone=document.getElementById("phoneInfo");
+            let whatsapp=document.getElementById("whatsappInfo");
+            let address=document.getElementById("addressInfo");
+            let paymentMethod=document.getElementById("paymentMethod");
+            let message=document.getElementById("message");
+            let product=document.getElementById("product0");
+            console.log(name)
+            console.log(email)
+            console.log(phone)
+            console.log(whatsapp)
+            console.log(address)
+            console.log(paymentMethod)
+            console.log(message)
+            console.log(product)
+            
+
+        }
+        catch(e){
+            console.log(e)
+        }
+
     }
 
     return (
