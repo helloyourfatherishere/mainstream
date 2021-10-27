@@ -180,7 +180,7 @@ function det(){
             let address=document.getElementById("addressInfo").value;
             let paymentMethod=document.getElementById("paymentMethod").value;
             let message=document.getElementById("message").value;
-            let product=document.querySelectorAll("product0");
+            let product=document.querySelectorAll("#product0");
             console.log(name)
             console.log(email)
             console.log(phone)
