@@ -328,7 +328,7 @@ function det(){
         
                 <div className="orderDetails" id="orderDetails">
                     {/* <form action={`/order/register/${userId}`} method="post"> */}
-                    <form>
+                    <form action="#">
                     <div className="cart_order_head">
                             <div className="cart_total">
                             </div>  
