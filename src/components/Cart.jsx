@@ -188,11 +188,6 @@ function det(){
             console.log(address)
             console.log(paymentMethod)
             console.log(message)
-            product.map((val,i)=>{
-                console.log(val)
-                console.log(val.value)
-            })
-            
 
         }
         catch(e){

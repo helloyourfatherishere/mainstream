@@ -128,7 +128,7 @@
         transition: all .2s ease-in;
     }
     .img_div{
-        width: 168px;
+        width: 169px;
         height:210px;
         text-align: center;
         border-bottom: 1px solid darkgrey;
@@ -175,13 +175,13 @@
         transition: all .2s ease-in;
     }
     .img_div{
-        width: 130px;
+        width: 140px;
         height:180px;
         text-align: center;
         border-bottom: 1px solid darkgrey;
     }
     .img_div>img{
-        width: 146px;
+        width: 148px;
         height: 170px;
         text-align: center;
     }
