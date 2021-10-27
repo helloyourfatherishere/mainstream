@@ -170,6 +170,9 @@ function det(){
         order_btn.style.display="flex"
         orderDet.style.display="none";
     }
+    async function purhcase(){
+        alert()
+    }
 
     return (
         <>
@@ -324,7 +327,8 @@ function det(){
         </div>
         
                 <div className="orderDetails" id="orderDetails">
-                    <form action={`/order/register/${userId}`} method="post" >
+                    {/* <form action={`/order/register/${userId}`} method="post"> */}
+                    <form>
                     <div className="cart_order_head">
                             <div className="cart_total">
                             </div>  
@@ -413,7 +417,7 @@ function det(){
                     <input type="text" name="message" id="message" className="message" placeholder="add your message" />
                     </div>
                     <div className="cart_btns">
-                        <button type="submit">PLACE ORDER</button>
+                        <button type="submit" onClick={()=>{purhcase();}}>PLACE ORDER</button>
                     </div>
         </form>
         </div>
