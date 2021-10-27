@@ -173,14 +173,14 @@ function det(){
     async function purhcase(){
         try{
             alert("hello")
-            let name=document.getElementById("nameInfo");
-            let email=document.getElementById("emailInfo");
-            let phone=document.getElementById("phoneInfo");
-            let whatsapp=document.getElementById("whatsappInfo");
-            let address=document.getElementById("addressInfo");
-            let paymentMethod=document.getElementById("paymentMethod");
-            let message=document.getElementById("message");
-            let product=document.getElementById("product0");
+            let name=document.getElementById("nameInfo").value;
+            let email=document.getElementById("emailInfo").value;
+            let phone=document.getElementById("phoneInfo").value;
+            let whatsapp=document.getElementById("whatsappInfo").value;
+            let address=document.getElementById("addressInfo").value;
+            let paymentMethod=document.getElementById("paymentMethod").value;
+            let message=document.getElementById("message").value;
+            let product=document.querySelectorAll("product0");
             console.log(name)
             console.log(email)
             console.log(phone)
