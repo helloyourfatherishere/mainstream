@@ -30,6 +30,7 @@ const OrderAndRecieved = () => {
                     // var data= await fetch(`/u/${type}`);
                     let verified= await fetch_user.json();
                     var res= await data.json();
+                    console.log(res)
                     setProduct(res.product)
                     if(verified.verify_user){
                         if(type==="order"){
