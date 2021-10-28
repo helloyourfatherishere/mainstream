@@ -7,7 +7,9 @@ const BrandNav = () => {
         let find = async function(){
             try{
                 let data= await fetch("/main",{
-                    method: 'POST',
+                    method: 'post',
+                    mode:"cors",
+                    credentials:"include",
                     headers:{"Content-Type": "application/json"},
                     body: ""
                 });

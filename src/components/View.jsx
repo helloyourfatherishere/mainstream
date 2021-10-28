@@ -178,9 +178,11 @@ const View = () => {
         var findData= async function(){
             try{
                 let data= await fetch(`https://tmword.herokuapp.com/view/${id}`,{
-                    method:"get",
+                    method:"post",
                     mode:"cors",
-                    credentials:"include"
+                    credentials:"include",
+                    headers:{"Content-Type":"application/json"},
+                    body:""
                 });
                 // let data= await fetch(`/view/${id}`);
                 let res= await data.json();
