@@ -6,7 +6,7 @@ const BrandNav = () => {
     useEffect(()=>{
         let find = async function(){
             try{
-                let data= await fetch("/main",{
+                let data= await fetch("https://tmword.herokuapp.com/main",{
                     method: 'post',
                     mode:"cors",
                     credentials:"include",
