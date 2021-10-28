@@ -374,7 +374,11 @@ function det(){
                     <input type="hidden" name={`product${i}`} id={`product${i}`} value={val.main_img.link} />
                     <input type="hidden" name={`product${i}`} id={`product${i}`} value={val.title} />
                     <input type="hidden" name={`product${i}`} id={`product${i}`} value={mainPrice} />
-                    <input type="number" name={`product${i}`} id={`product${i}`} placeholder="quantity" required="required" className="cart_order_input"/>
+                    <input type="number" name={`product${i}`} id={`product${i}`} placeholder="quantity" required="required" className="cart_order_input" onInput={(e)=>{
+                        if(e.value<=0){
+                            e.value=1
+                        }
+                    }}/>
                     <p className="available_p">Available sizes: <span className="available">{colors.map((val, i)=>{return(val+", ")})}</span></p>
                     <input type="text" name={`product${i}`} id={`product${i}`} placeholder="colours: red, blue..." required="required" list="c" autoComplete="off" className="cart_order_input"/>
                     <datalist id="c">
