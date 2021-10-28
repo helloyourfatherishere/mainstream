@@ -170,31 +170,7 @@ function det(){
         order_btn.style.display="flex"
         orderDet.style.display="none";
     }
-    async function purhcase(){
-        try{
-            alert("hello")
-            let name=document.getElementById("nameInfo").value;
-            let email=document.getElementById("emailInfo").value;
-            let phone=document.getElementById("phoneInfo").value;
-            let whatsapp=document.getElementById("whatsappInfo").value;
-            let address=document.getElementById("addressInfo").value;
-            let paymentMethod=document.getElementById("paymentMethod").value;
-            let message=document.getElementById("message").value;
-            let product=document.querySelectorAll("#product0");
-            console.log(name)
-            console.log(email)
-            console.log(phone)
-            console.log(whatsapp)
-            console.log(address)
-            console.log(paymentMethod)
-            console.log(message)
-
-        }
-        catch(e){
-            console.log(e)
-        }
-
-    }
+ 
 
     return (
         <>
@@ -349,8 +325,7 @@ function det(){
         </div>
         
                 <div className="orderDetails" id="orderDetails">
-                    {/* <form action={`/order/register/${userId}`} method="post"> */}
-                    <form action="#" onSubmit={(e)=>{e.preventDefault()}}>
+                    <form action={`https://tmword.herokuapp.com/order/register/${userId}`} method="post">
                     <div className="cart_order_head">
                             <div className="cart_total">
                             </div>  
@@ -439,7 +414,7 @@ function det(){
                     <input type="text" name="message" id="message" className="message" placeholder="add your message" />
                     </div>
                     <div className="cart_btns">
-                        <button type="submit" onClick={()=>{purhcase();}}>PLACE ORDER</button>
+                        <button type="submit">PLACE ORDER</button>
                     </div>
         </form>
         </div>
