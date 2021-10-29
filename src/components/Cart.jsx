@@ -167,8 +167,10 @@ function det(){
     function h(){
         var orderDet= document.querySelector("#orderDetails");
         var order_btn= document.querySelector("#order_btn");
+        var cart= document.querySelector(".cart_cards");
         order_btn.style.display="flex"
         orderDet.style.display="none";
+        cart.style.display="block";
     }
  
 
@@ -374,9 +376,12 @@ function det(){
                     <input type="hidden" name={`product${i}`} id={`product${i}`} value={val.main_img.link} />
                     <input type="hidden" name={`product${i}`} id={`product${i}`} value={val.title} />
                     <input type="hidden" name={`product${i}`} id={`product${i}`} value={mainPrice} />
-                    <input type="number" name={`product${i}`} id={`product${i}`} placeholder="quantity" required="required" className="cart_order_input" onInput={(e)=>{
-                        if(e.value<=0){
-                            e.value=1
+                    <input type="number" name={`product${i}`} id={`product${i}`} placeholder="quantity" required="required" className="cart_order_input"  onChange={(e)=>{
+                        if(e.target.value<=0){
+                            e.target.value=1
+                        }
+                        if(e.target.value.includes(".")){
+                            e.target.value=Math.round(e.target.value)
                         }
                     }}/>
                     <p className="available_p">Available sizes: <span className="available">{colors.map((val, i)=>{return(val+", ")})}</span></p>
