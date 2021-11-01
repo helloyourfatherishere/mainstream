@@ -254,7 +254,7 @@ const Index= function(){
                  
         </div>
 
-        <div className="parent_card">
+        {/* <div className="parent_card">
             <div className="heading">
             <h1 className="heading_h1">Undergarmens:</h1>
             </div>
@@ -270,7 +270,7 @@ const Index= function(){
                 <a href="/category/undergarment">more..</a>
                 </div>
                  
-        </div>
+        </div> */}
 
      </div>
      

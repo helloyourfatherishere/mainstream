@@ -30,7 +30,7 @@ const BrandNav = () => {
                    return(
                        <>
                        <div className="item">
-                           <a href={`https://tmword.herokuapp.com/brand/${val}`}>{val}</a>
+                           <a href={`/brand/${val}`}>{val}</a>
                        </div>
                        </>
                    )
@@ -45,7 +45,7 @@ const BrandNav = () => {
                    return(
                        <>
                        <div className="vertical_item">
-                           <a href={`https://tmword.herokuapp.com/category/${val}`}>{val}</a>
+                           <a href={`/category/${val}`}>{val}</a>
                        </div>
                        </>
                    )
