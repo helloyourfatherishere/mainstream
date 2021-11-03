@@ -45,7 +45,7 @@ const BrandNav = () => {
                    return(
                        <>
                        <div className="vertical_item">
-                           <a href={`/category/${val}`}>{val}</a>
+                           <a href={`/brand/${val}`}>{val}</a>
                        </div>
                        </>
                    )

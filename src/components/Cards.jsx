@@ -6,8 +6,7 @@ var s={
     fontSize: '15px'
 }
 const Cards = ({data}) => {
-
-    if(data.images.length>0){
+    if(data.images.length!==0){
         
     //DISCOUNT
     if(data.discount){
@@ -184,7 +183,12 @@ const Cards = ({data}) => {
 
         }
 
+    
     }
+    }
+    else{
+        
+        return("")
     }
     // return (
     //     <>
