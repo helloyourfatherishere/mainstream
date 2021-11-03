@@ -7,6 +7,8 @@ var s={
 }
 const Cards = ({data}) => {
 
+    if(data.images.length>0){
+        
     //DISCOUNT
     if(data.discount){
         if(data.brand){
@@ -182,6 +184,7 @@ const Cards = ({data}) => {
 
         }
 
+    }
     }
     // return (
     //     <>
