@@ -6,7 +6,6 @@
     overflow-x: auto;
     user-select: none;
     display: none;
-    border: 1px solid red;
 }
 .items::-webkit-scrollbar{
     display: none;
