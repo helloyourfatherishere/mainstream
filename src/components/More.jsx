@@ -5,7 +5,7 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MoreOptions from "../components/MoreOptions";
-
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const useStyles = makeStyles({
   list: {
     width: 300,
@@ -48,7 +48,7 @@ function Category (){
       <>
         {['right'].map((anchor) => (
           <React.Fragment key={anchor}>
-            <SettingsIcon onClick={toggleDrawer(anchor, true)} style={{fontSize : '1.8rem'}} id="more"></SettingsIcon>
+            <AccountCircleIcon onClick={toggleDrawer(anchor, true)} style={{fontSize : '1.8rem'}} id="more"></AccountCircleIcon>
             <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
               {list(anchor)}
             </Drawer>
