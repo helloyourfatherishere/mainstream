@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-import SettingsIcon from '@material-ui/icons/Settings';
 import MoreOptions from "../components/MoreOptions";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const useStyles = makeStyles({
