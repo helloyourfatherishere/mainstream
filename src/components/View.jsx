@@ -387,7 +387,7 @@ const View = () => {
                         <input type="hidden" name="img" id={`product${i}`} value={val.main_img.link} />
                         <input type="hidden" name="title" id={`product${i}`} value={val.title} />
                         <input type="hidden" name="price" id={`product${i}`} value={mainPrice} />
-                        <input type="number" name="quantity" id={`product${i}`} placeholder="quantity" required="required" className="cart_order_input" onChange={(e)=>{
+                        <input type="number" name="quantity" id={`product${i}`} placeholder="quantity" required="required" className="cart_order_input"onChange={(e)=>{
                         if(e.target.value<=0){
                             e.target.value=1
                         }
