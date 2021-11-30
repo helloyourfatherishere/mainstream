@@ -377,7 +377,7 @@ function det(){
                     <input type="hidden" name={`product${i}`} id={`product${i}`} value={val.title} />
                     <input type="hidden" name={`product${i}`} id={`product${i}`} value={mainPrice} />
                     <input type="number" name={`product${i}`} id={`product${i}`} placeholder="quantity" required="required" className="cart_order_input"  onChange={(e)=>{
-                        if(e.target.value<0){
+                        if(e.target.value<=0){
                             e.target.value=1
                         }
                         if(e.target.value.includes(".")){
@@ -385,28 +385,9 @@ function det(){
                         }
                     }}/>
                     <p className="available_p">Available Colours: <span className="available">{colors.map((val, i)=>{return(val+", ")})}</span></p>
-                    <input type="text" name={`product${i}`} id={`product${i}`} placeholder="colours: red, blue..." required="required" list="c" autoComplete="off" className="cart_order_input"/>
-                    <datalist id="c">
-                        {colors.map((val, i)=>{
-                            console.log(val)
-                           return(
-                                <>
-                                    <option value={val}>{val}</option>
-                                </> 
-                           )
-                        })}
-                    </datalist>
+                    <input type="text" name={`product${i}`} id={`product${i}`} placeholder="colours: red, blue..." required="required"  autoComplete="off" className="cart_order_input"/>
                     <p className="available_p">Available Sizes: <span className="available">{sizes.map((val, i)=>{return(val+", ")})}</span></p>
-                    <input type="text" name={`product${i}`} id={`product${i}`} placeholder="size: small, medium..." required="required" autoComplete="off" list="s" className="cart_order_input"/>
-                    <datalist id="s">
-                        {sizes.map((val, i)=>{
-                           return(
-                                <>
-                                    <option value={val}></option>
-                                </> 
-                           )
-                        })}
-                    </datalist>
+                    <input type="text" name={`product${i}`} id={`product${i}`} placeholder="size: small, medium..." required="required" autoComplete="off" className="cart_order_input"/>
                           
                     </div>
                 </div>
