@@ -26,6 +26,7 @@ const MoreOptions = () => {
                 x.className = "show";
                 x.textContent="logged out"
                 setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                window.location.reload();
             }
         }
         catch(e){
