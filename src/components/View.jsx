@@ -143,6 +143,7 @@ const View = () => {
     var whatsapp;
     var address;
 
+    var a;
 
  var sub = async function(){
         try{
@@ -175,6 +176,7 @@ const View = () => {
     }
 } 
     useEffect(()=>{
+        let isMounted = true; 
         var findData= async function(){
             try{
                 let data= await fetch(`https://tmword.herokuapp.com/view/${id}`,{
@@ -187,26 +189,21 @@ const View = () => {
                 // let data= await fetch(`/view/${id}`);
                 let res= await data.json();
                 setFind(res.find)
-                if(res.find){
-                    setData(res.data)
-                    setImages(res.data.images)
-                    setMore(res.more)
-                    var tab=res.data.table.split(";")
-                    setTable(tab);
-                    setComments(res.data.comments)
-                    setD([res.data])
+                if(isMounted){
+                     if(res.find){
+                            setData(res.data)
+                            setImages(res.data.images)
+                            setMore(res.more)
+                            setD([res.data])
+                            setComments(res.data.comments)
+                            console.log(res.data.table)
+                            
+                            setTable(res.data.table);
+                        }
 
                 }
-                else{
-                    setData({})
-                    setMore([])
-                    setImages([])
-                    setTable("");
-                    setComments([])
-                    setD([{}])
-                    setFind(false)
 
-                }
+             return()=>{isMounted=false}
 
             }
             catch(e){
@@ -255,12 +252,14 @@ const View = () => {
                                 <tbody>
                                     {table.map((val, i)=>{
                                         var v= val.split(":")
-                                        return(
-                                            <tr>
-                                                <td>{v[0]}</td>
-                                                <td>{v[1]}</td>
-                                            </tr>
-                                        )
+                                        if(v[0].length>1){
+                                            return(
+                                                <tr>
+                                                    <td>{v[0]}</td>
+                                                    <td>{v[1]}</td>
+                                                </tr>
+                                            )
+                                        }
                                     })}
                                 </tbody>
                             </table>
