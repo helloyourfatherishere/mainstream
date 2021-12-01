@@ -198,7 +198,7 @@ const View = () => {
                             setComments(res.data.comments)
                             console.log(res.data.table)
                             
-                            setTable(res.data.table);
+                            setTable(res.data.table.split(";"));
                         }
 
                 }
