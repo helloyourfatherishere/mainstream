@@ -196,9 +196,9 @@ const View = () => {
                             setMore(res.more)
                             setD([res.data])
                             setComments(res.data.comments)
-                            console.log(res.data.table)
+                            var t= res.data.table.split(";")
                             
-                            setTable(res.data.table.split(";"));
+                            setTable(t);
                         }
 
                 }
@@ -311,7 +311,7 @@ const View = () => {
                                             <fieldset className="fieldset">
                                                 <legend className="legend"><CheckCircleOutlineIcon className="check" style={{'fontSize': '10px'}}/>verified</legend>
                                                 <div className="comms">
-                                                <p><b style={{'textTransform': 'capitalize'}}>{val.name}: </b>{val.comment}</p>
+                                                <p className="com"><b style={{'textTransform': 'capitalize'}}>{val.name}: </b>{val.comment}</p>
                                                 </div>
                                             </fieldset>
                                             </>

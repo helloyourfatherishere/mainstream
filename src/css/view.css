@@ -94,7 +94,7 @@ td{
   border-bottom-left-radius: 5px;
   border-top-right-radius: 10px;
   margin: auto 3%;
-  background-color: #F0F0F0;
+  background-color: #f3f3f3;
   border: .5px solid darkgray;
   word-wrap: break-word;
   min-width: auto;
@@ -140,5 +140,18 @@ td{
   .view_more_card>.link>.cards{
     align-self: flex-start;
     align-content: flex-start;
+  }
+  .com{
+    font-size: .8rem;
+  }
+  .legend{
+    font-size: 60%;
+  }
+  .fieldset{
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 2.5px;
+    border-top-right-radius: 5px;
+    width: 70%;
+    
   }
 }

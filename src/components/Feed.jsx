@@ -110,7 +110,7 @@ const Feed = () => {
                 </form>
             </div>
             <div className="login_btn">    
-                <Button variant="contained" color="primary" id="submit_btn" onClick={()=>{send()}}>Submit</Button>
+                <Button variant="contained" color="primary" id="submit_btn" onClick={()=>{send()}}>Send</Button>
             </div>
         </div>
     </div>

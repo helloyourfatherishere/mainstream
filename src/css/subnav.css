@@ -12,6 +12,7 @@
 }
 .item{
     border: 1px solid #0000ff;
+    border: 1px solid black;
     min-width: 130px;
     margin: .5% 1%;
     text-align: center;
@@ -19,6 +20,7 @@
     transition: all .3s;
     border-radius: 50px;
     cursor: pointer;
+    height: 20px;
 }
 .item>a{
     color: #3466fc;
