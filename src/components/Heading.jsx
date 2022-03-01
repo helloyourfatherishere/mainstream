@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useParams, useHistory} from "react-router-dom"
 import Image from "./Images.jsx"
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 
 import "../css/view.css"
 import "../css/cart.css";
@@ -86,7 +87,7 @@ const Heading = ({data}) => {
   }, [])
     var add= async function(){
         try{
-            let d= await fetch(`https://tmword.herokuapp.com/addtocart/${data._id}`,{
+            let d= await fetch(`https://streamback.herokuapp.com/addtocart/${data._id}`,{
                 method:'post',
                 mode:"cors",
                 credentials:"include",
@@ -102,13 +103,13 @@ const Heading = ({data}) => {
             if(res.status && res.type==="add"){
                 var x = document.getElementById("snackbar");
                 x.className = "show";
-                x.textContent="Added to Cart"
+                x.textContent="Saved"
                 setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
             }
-            else if(!res.status && res.type==="added"){
+            else if(!res.status && res.type==="saved"){
                 var x = document.getElementById("snackbar");
                 x.className = "show";
-                x.textContent="Already Added"
+                x.textContent="Already Saved"
                 setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
             }
             else{
@@ -129,20 +130,11 @@ const Heading = ({data}) => {
     
                   <div className="views_title">
                     <p>{data.title}</p>
-                  </div>
-    
-                  <div className="views_del">
-                    <p>DELIVERY: delivery charges: 250rs.</p>
-                  </div>
-    
+                  </div>    
                   
-                  <div className="views_title">
-                    <p>Price: <span style={{'fontWeight': 'normal'}}>{data.cut_price}</span> <s style={{'fontWeight': 'normal', 'color': 'grey'}}>{data.price}</s> </p>             
-                     </div>
     
                   <div className="views_button">
-                      <button id="buy_btn" className="views_btn" onClick={()=>{show()}}>BUY</button>
-                        <button id="cart_btn" className="views_btn" onClick={()=>{add()}}>CART</button>
+                        <button id="cart_btn" className="views_btn" onClick={()=>{add()}}>SAVE</button>
                   </div>
     
               </div> 
@@ -194,18 +186,8 @@ const Heading = ({data}) => {
                     <p>{data.title}</p>
                   </div>
     
-                  <div className="views_del">
-                    <p>DELIVERY: delivery charges: 250rs.</p>
-                  </div>
-    
-                  
-                  <div className="views_title">
-                    <p>Price: <span style={{'fontWeight': 'normal'}}>{data.price}</span></p>             
-                     </div>
-    
                   <div className="views_button">
-                      <button id="buy_btn" className="views_btn" onClick={()=>{show()}}>BUY</button>
-                        <button id="cart_btn" className="views_btn" onClick={()=>{add()}}>CART</button>
+                        <button id="cart_btn" className="views_btn" onClick={()=>{add()}}><VideoLibraryIcon style={{fontSize:"1.2rem"}}/> SAVE</button>
                   </div>
     
               </div> 

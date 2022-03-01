@@ -3,7 +3,7 @@ import {useHistory, useParams} from "react-router-dom"
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import "../css/login.css"
-
+import Nav from "../components/Nav.jsx"
 var input_style={
     width: '100%',
     margin: 'auto, 5%',
@@ -61,13 +61,21 @@ const Feed = () => {
                 let m= message
                 var sendMessage= async function(){
                     try{
-                        let data=await  fetch(`https://tmword.herokuapp.com/feed/${sub}`,{
+                        let data=await  fetch(`https://streamback.herokuapp.com/feed/${sub}`,{
                             method: 'post',
                             mode:"cors",
                             credentials:"include",
                             headers: {"Content-Type": "application/json"},
                             body: JSON.stringify({email : e, message: m})
                         });
+                        
+                        // let data=await  fetch(`/feed/${sub}`,{
+                        //     method: 'post',
+                        //     credentials:"include",
+                        //     headers: {"Content-Type": "application/json"},
+                        //     body: JSON.stringify({email : e, message: m})
+                        // });
+
                         let res= await data.json();
                         if(res){
                             var email= document.querySelector("#email").value;
@@ -98,6 +106,7 @@ const Feed = () => {
     }
     return (
         <> <div className="main_login">
+            <Nav></Nav>
         <div className="login_head">
             <p className="login_heading">{head}</p>
             <p>{mess}</p>

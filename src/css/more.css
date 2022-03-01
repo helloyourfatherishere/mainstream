@@ -6,7 +6,7 @@
     }
   .sidenav {
   height: 100vh; /* 100% Full-height */
-  width: auto; /* 0 width - change this with JavaScript */
+  width: 100%; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -14,19 +14,20 @@
   background-color: white; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  margin-left: -10px;
   }
   .more_links{
     width: 100%;
     list-style: none;
     margin: none;
+    border-bottom: 1px solid #F0F0F0;
   }
   .more_links>li{
-      color: black;
+      color: white;
       list-style:none;
       font-size: 1.5rem;
       text-align: left;
       cursor: pointer;
-      border-bottom: 1px solid #F0F0F0;
       transition: all .2s ease;
       user-select: none;
       margin: none;
@@ -56,7 +57,6 @@
   top: 0;
   left: 0;
   font-size: 1.5rem;
-  margin-left: 5px;
   }
 
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -90,7 +90,10 @@
     bottom: 30px;
     font-size: 17px;
   }
-  
+  #mySidenav{
+    background-color: black;
+    color: white;
+  }
   #snackbar.show {
     visibility: visible;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;

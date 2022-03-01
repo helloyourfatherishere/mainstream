@@ -2,7 +2,8 @@ import React from 'react'
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
-import "../css/cateMore.css"
+import "../css/cardSearch.css"
+import "../css/searchPage.css";
 
 const CateMore = () => {
     return (

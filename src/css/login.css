@@ -6,9 +6,10 @@
 .main_login{
     width: 100vw;
     height: 100%;
+    background-color: black;
 }
 .login_head>p{
-    color: black;
+    color: white;
     font-size: 1.2rem;
     text-align: center;
     user-select: none;
@@ -18,6 +19,13 @@
     font-size: 2rem;
     font-weight: bold;
     user-select: none;
+}
+.login_head>.login_message{
+    font-size: 1rem;
+    color: grey;
+    text-transform: capitalize;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: normal;
 }
 .form_login{
     border: .5px solid darkgrey;
@@ -31,19 +39,25 @@
     margin-top: 5%;
     user-select: none;
 }
+.login_input,#email,#message {
+    background-color: rgb(116, 116, 116);
+}
+label{
+    color: white;
+}
 .login_links{
     margin: 5% 5%;
     display: flex;
     justify-content: space-between;
 }
 .login_links>a{
-    color: 	#000080;
+    color: 	 #3466fc;
     font-size: 1rem;
     user-select: none;
     transition: all .3s;
 }
 .login_links>a:hover{
-    color: #3466fc;
+    color: #000080;
 }
 .login_btn{
     position: relative;
@@ -54,6 +68,10 @@
     width: 80%;
     margin: auto 10%;
     user-select: none;
+    background-color: #3466fc;
+}
+#submit_btn:hover{
+    background-color: #000080;
 }
 #reset_form{
     display: none;

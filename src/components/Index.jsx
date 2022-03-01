@@ -4,17 +4,10 @@ import "../css/poster.css"
 import Nav from "./Nav"
 import Cards from "../components/Cards.jsx"
 const Index= function(){
-    var [pants, setPants]= useState([]);
-    var [shirts, setShirts]= useState([]);
-    var [tShirts, setTshirts]= useState([]);
-    var [jackets, setJackets]= useState([]);
-    var [hoodies, setHoodies]= useState([]);
-    var [trouser, setTrouser]= useState([]);
-    var [shalwarKameez, setShalwarKameez]= useState([]);
-    var [kurti, setKurti]= useState([]);
-    var [collections, setCollections]= useState([]);
-    var [undergarments, setUndergarments]= useState([]);
-    var [poster, setPoster] = useState([]);
+    var [hollywood, setHollywood]= useState([]);
+    var [bollywood, setBollywood]= useState([]);
+    var [tamil, setTamil]= useState([]);
+    var [poster, setPoster]= useState([]);
     var p= function(){
         var slideIndex = 0;
         showSlides();
@@ -29,35 +22,39 @@ const Index= function(){
         if (slideIndex > slides.length) {slideIndex = 1}    
         
         slides[slideIndex-1].style.display = "block";  
-        setTimeout(showSlides, 2500); // Change image every 2 seconds
+        setTimeout(showSlides, 3500); // Change image every 3.5 seconds
 }
+    }
+    function tr(str,n){
+        return str?.length>n ? str.substr(0,n - 1)+ "...": str;
     }
     useEffect(()=>{
         var f= async function(){
             try{
-                var res= await fetch("https://tmword.herokuapp.com/api",{
+                var res= await fetch("https://streamback.herokuapp.com/api",{
                     method:"post",
                     mode:"cors",
                     credentials:"include",
                     headers:{"Content-Type":"application/json"},
                     body:""
                 })
+
+                // var res= await fetch("/api",{
+                //     method:"post",
+                //     credentials:"include",
+                //     headers:{"Content-Type":"application/json"},
+                //     body:""
+                // })
                 // var res= await fetch("/api")
                 // var a = await res.text()
                 var a= await res.json();
+                console.log(a[4])
                 // var a= await res.json();
                 // var a= JSON.parse(res); 
-                setPants(a[0])
-                setShirts(a[1])
-                setTshirts(a[2])
-                setJackets(a[3])
-                setHoodies(a[4])
-                setTrouser(a[5])
-                setShalwarKameez(a[6])
-                setKurti(a[7])
-                setCollections(a[8])
-                setUndergarments(a[9])
-                setPoster(a[10])
+                setHollywood(a[0])
+                setBollywood(a[1])
+                setTamil(a[2])
+                setPoster(a[4])
                 p();
             }catch(e){
                 document.write(e)
@@ -66,87 +63,82 @@ const Index= function(){
             
     }, [])
     return(
+        <div className="main">
         <> 
         <Nav key="1"></Nav>
         <div className="slideshow-container">
     {poster.map((val,i)=>{
         return(
             <div className="mySlides fade">
-            <img src={val.link} className="poster_img" alt="poster"/>
+            <img src={val.main_img.link} className="poster_img" alt="poster"/>
+            <div className="p_more">
+            <h1 className="p_p">{val.title}</h1>
+            <p className="p_d">{tr(val.des,150)}</p>
+            <a href={`/view/${val._id}`}><button className="p_btn">Watch Now</button></a>
+            </div>
             </div>
         )
     })}
-
-
-
-</div>
+        </div>
+        
 <br/>
         <div className="card_div">
         <div className="parent_card">
             <div className="heading">
-                <h1 className="heading_h1">Pants:</h1>
+                <h1 className="heading_h1">Hollywood:</h1>
             </div>
             <div className="card">
-            {pants.map((val,i)=>{
+            {hollywood.map((val,i)=>{
                     return(
                         <>
-                            <Cards key={i} data={val}/>
+                            <Cards key={i} data={val} cl={"cards"}/>
                         </>
                     )
                 })}
                 </div>
                 <div className="more">
-                    <a href="/category/pants">more..</a>
+                    <a href="/category/hollywood">more..</a>
                 </div>
                 
         </div>
 
         <div className="parent_card">
             <div className="heading">
-            <h1 className="heading_h1">Shirts:</h1>
+            <h1 className="heading_h1">Bollywood:</h1>
             </div>
             <div className="card">
-            {shirts.map((val,i)=>{
+            {bollywood.map((val,i)=>{
                     return(
                     <>
-                        <Cards key={i} data={val}/>
-                    {/* <a href={`/view/${val._id}`} className="link">
-                    <div key={i} className="cards">
-                        <div className="img_div">
-                             <img src={val.main_img.link} alt="images" />
-                    </div>
-                    <div className="title">
-                        <p>{val.title}</p>
-                        </div>
-                    </div>  
-                    </a> */}
+                    <Cards key={i} data={val} cl={"cards"}/>
                     </>)
                 })}
                 </div>
                 <div className="more">
-                <a href="/category/shirts">more..</a>
-                </div>
-                
-        </div>
-        <div className="parent_card">
-            <div className="heading">
-            <h1 className="heading_h1">T-Shirts:</h1>
-            </div>
-            <div className="card">
-            {tShirts.map((val,i)=>{
-                    return(
-                    <>
-                    <Cards key={i} data={val}/>
-                    </>)
-                })}
-                </div>
-                <div className="more">
-                <a href="/category/t-shirts">more..</a>
+                <a href="/category/bollywood">more..</a>
                 </div>
                  
         </div>
 
         <div className="parent_card">
+            <div className="heading">
+            <h1 className="heading_h1">Tamil:</h1>
+            </div>
+            <div className="card">
+            {tamil.map((val,i)=>{
+                    return(
+                    <>
+                    <Cards key={i} data={val} cl={"cards"}/>
+                    </>)
+                })}
+                </div>
+                <div className="more">
+                <a href="/category/tamil">more..</a>
+                </div>
+                 
+        </div>
+
+        {/* <div className="parent_card">
             <div className="heading">
             <h1 className="heading_h1">Jackets:</h1>
             </div>
@@ -252,7 +244,7 @@ const Index= function(){
                 <a href="/category/collection">more..</a>
                 </div>
                  
-        </div>
+        </div> */}
 
         {/* <div className="parent_card">
             <div className="heading">
@@ -276,6 +268,7 @@ const Index= function(){
      
      <div id="snackbar">logged out</div>
         </>
+        </div>
     )
 };
 export default Index;

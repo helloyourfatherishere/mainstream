@@ -2,12 +2,13 @@ import React, {useState, useEffect}from 'react'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import "../css/login.css"
+import Nav from"./Nav.jsx";
 import { NavLink , useHistory, useParams} from 'react-router-dom';
 var input_style={
     width: '100%',
     margin: 'auto, 5%',
     marginTop:'10px',
-    height: 'auto'
+    height: 'auto',
 }
 
 const Login = () => {
@@ -36,7 +37,7 @@ const Login = () => {
         if(verify_email && verify_pass){
             var find_user= async function(){
                 try{
-                    var data= await fetch(`https://tmword.herokuapp.com/signin`,{
+                    var data= await fetch(`https://streamback.herokuapp.com/signin`,{
                         method: 'post',
                         mode:"cors",
                         credentials:"include",
@@ -50,6 +51,7 @@ const Login = () => {
                     //     body:JSON.stringify({email, pass}),
                     //     withCredentials: true,
                     // });
+
                     let res= await data.json();
                     if(res.status){
                         var x = document.getElementById("snackbar");
@@ -80,9 +82,10 @@ const Login = () => {
     return (
         <>
             <div className="main_login">
+                <Nav></Nav>
                 <div className="login_head">
                     <p className="login_heading">Login</p>
-                    <p>you must have to <b>Login </b>first</p>
+                    <p className="login_message">you must have to <b>Login </b>first</p>
                 </div>
                 <div className="form_login">
                     <div className="form_div_login">

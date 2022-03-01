@@ -10,16 +10,24 @@ const CategoryList = () => {
   useEffect(()=>{
     var findMain= async function(){
       try{
-        let data= await fetch("https://tmword.herokuapp.com/main",{
+        let data= await fetch("https://streamback.herokuapp.com/main",{
           method: "post",
           mode:"cors",
           credentials:"include",
           headers:{"Content-Type":"application/json"},
           body:""
         });
+
+
+        // let data= await fetch("/main",{
+        //   method: "post",
+        //   credentials:"include",
+        //   headers:{"Content-Type":"application/json"},
+        //   body:""
+        // });
+
         let res= await data.json();
         setCategory(res.main_data.cate[0].split(','))
-        setBrand(res.main_data.brand[0].split(","))
       }
       catch(e){
       }
@@ -34,19 +42,11 @@ const CategoryList = () => {
             <ul class="nav_ul">
                 {category.map((val, i)=>{
                     return(
-                      <a href={`/category/${val}`} className="category_options"><li><DragHandleOutlinedIcon /> {val} </li></a>
+                      <a href={`/category/${val}`} className="category_options"><li>{val}</li></a>
                     )
                  })}
 
-                <li className="brand"><DragHandleOutlinedIcon /> Brands<span className="brands_more_arrow"><ArrowRightIcon /></span> <span className="brands_more_arrow_down"><ArrowDropDownIcon /></span>
-                  <ul class="sub_ul">
-                  {brand.map((val, i)=>{
-                    return(
-                      <a href={`/brand/${val}`}><li><ClearAllOutlinedIcon />{val}</li></a>
-                    )
-                 })}
-                  </ul>
-                </li>
+               
             </ul>
       </div>
         </>

@@ -20,8 +20,6 @@ const CartLink = () => {
         <>
         <div className={classes.root} id="cart_list">
             <a className="cart_opt"  href="/cart" ><Button><ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon></Button></a>
-            <a className="cart_opt"   href="/user/order" ><Button><AddShoppingCartOutlinedIcon></AddShoppingCartOutlinedIcon></Button></a>
-            <a className="cart_opt"  href="/user/recieved" ><Button><MarkunreadMailboxOutlinedIcon></MarkunreadMailboxOutlinedIcon></Button></a>              
             </div>
         </>
     )

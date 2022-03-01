@@ -3,22 +3,28 @@
     padding: 0;
     box-sizing: border-box;
 }
-.main{
+.main_acc{
     display: inline-block;
     width: 100vw;
     height: 100vh;
     object-fit: contain;
+    background-color: black;
 }
 .heading_div{
     width: 80%;
     margin: 1% 5%;
 }
 .heading_div>p{
-    color: black;
+    color: white;
     font-size: 2rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
     font-weight: bold;
+}
+#acc_message{
+    font-size: 1rem;
+    font-weight: normal;
+    color: grey;
 }
 .form{
     width: 60%;
@@ -59,7 +65,7 @@
     align-items: center;
 }
 .sub_link>a{
-    color: #000080;
+    color: #3466fc;
     font-size: 1.4rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     position: relative;
@@ -67,18 +73,22 @@
     transition: all .2s;
 }
 .sub_link>a:hover{
-    color: #3466fc;
+    color: #000080;
 }
 .account_input{
     height: 20px;
     margin: 0;
+    background-color: rgb(116, 116, 116);
+}
+label{
+    color: white;
 }
 #submit_btn{
-    background-color:#000080;
+    background-color:#3466fc;
     transition: all .2s;
 }
 #submit_btn:hover{
-    background-color: #3466fc;
+    background-color: #000080;
 }
 @media only screen and (max-width: 450px) {
     #form_div{

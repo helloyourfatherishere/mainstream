@@ -19,6 +19,9 @@ var s={
     fontSize: '15px'
 }
 
+function c_tr(str,n){
+    return str?.length>n ? str.substr(0,n - 1)+ "...": str;
+}
 const Cart = () => {
     var history= useHistory();
     var[userId, setUserId]= useState("");
@@ -37,7 +40,7 @@ const Cart = () => {
     useEffect(()=>{
         var findCart= async function(){
             try{
-                let data= await fetch("https://tmword.herokuapp.com/u/cart",{
+                let data= await fetch("https://streamback.herokuapp.com/u/cart",{
                     method: 'post',
                     mode: "cors",
                     credentials:"include",
@@ -51,11 +54,15 @@ const Cart = () => {
                 // })
                 let res= await data.json();
 
-                let verify= await fetch("https://tmword.herokuapp.com/verify_user",{
+                let verify= await fetch("https://streamback.herokuapp.com/verify_user",{
                     method:"get",
                     mode:"cors",
                     credentials:"include"
                 })
+                // let verify= await fetch("/verify_user",{
+                //     method:"get",
+                //     credentials:"include"
+                // })
                 // let verify= await fetch("/verify_user")
                 let v= await verify.json();
                 let verified= v.verify_user;
@@ -69,7 +76,7 @@ const Cart = () => {
                     }
                     else{
                         if(res.product.length===0){
-                            setMessage("No Carted Products:")
+                            setMessage("No Saved Videos:")
                             var btn= document.querySelector("#order_btn");
                             btn.style.display="none";
                         }
@@ -97,115 +104,101 @@ const Cart = () => {
 var cancel= async function(p_id){
     let i=0
     try{
-        let data= await fetch(`https://tmword.herokuapp.com/removeCart/${userId}/${p_id}`,{
+        let data= await fetch(`https://streamback.herokuapp.com/removeCart/${userId}/${p_id}`,{
             method:"post",
             mode:"cors",
             credentials:"include",
             headers: {"Content-Type": "application/json"},
             body: ""
         })
+        // let data= await fetch(`/removeCart/${userId}/${p_id}`,{
+        //     method:"post",
+        //     credentials:"include",
+        //     headers: {"Content-Type": "application/json"},
+        //     body: ""
+        // })
         let res= await data.json();
+        console.log(res)
         setRemove(p_id)
     }
     catch(e){
     }
 };
-function show(){
-    var user_div= document.querySelector("#userDetails")
-    var OrderBtn= document.querySelector("#order_btn");
-    OrderBtn.style.display="none"
-    user_div.style.display="block";
-}
-function hide(){
-    var user_div= document.querySelector("#userDetails");
-    var OrderBtn= document.querySelector("#order_btn");
-    OrderBtn.style.display="block"
-    user_div.style.display="none";
-}
-function det(){
-    var name= document.getElementById("name").value;
-    var email= document.getElementById("email").value;
-    var phone= document.getElementById("phone").value;
-    var whatsapp= document.getElementById("whatsapp").value;
-    var address= document.getElementById("address").value;
-    var cart_cards= document.querySelector(".cart_cards");
-    cart_cards.style.display="none";
-    var verify_email
-    if(!email.includes("@")){
-        alert("Include Valid Email")
-        verify_email= false
-    }
-    else{
-            verify_email= true
-            if(name.length>5 && verify_email && phone.length>8 && address.length>10){
-                var nameInfo= document.getElementById("nameInfo");
-                var emailInfo= document.getElementById("emailInfo");
-                var phoneInfo= document.getElementById("phoneInfo");
-                var whatsappInfo= document.getElementById("whatsappInfo");
-                var addressInfo= document.getElementById("addressInfo");
+// function show(){
+//     var user_div= document.querySelector("#userDetails")
+//     var OrderBtn= document.querySelector("#order_btn");
+//     OrderBtn.style.display="none"
+//     user_div.style.display="block";
+// }
+// function hide(){
+//     var user_div= document.querySelector("#userDetails");
+//     var OrderBtn= document.querySelector("#order_btn");
+//     OrderBtn.style.display="block"
+//     user_div.style.display="none";
+// }
+// function det(){
+//     var name= document.getElementById("name").value;
+//     var email= document.getElementById("email").value;
+//     var phone= document.getElementById("phone").value;
+//     var whatsapp= document.getElementById("whatsapp").value;
+//     var address= document.getElementById("address").value;
+//     var cart_cards= document.querySelector(".cart_cards");
+//     cart_cards.style.display="none";
+//     var verify_email
+//     if(!email.includes("@")){
+//         alert("Include Valid Email")
+//         verify_email= false
+//     }
+//     else{
+//             verify_email= true
+//             if(name.length>5 && verify_email && phone.length>8 && address.length>10){
+//                 var nameInfo= document.getElementById("nameInfo");
+//                 var emailInfo= document.getElementById("emailInfo");
+//                 var phoneInfo= document.getElementById("phoneInfo");
+//                 var whatsappInfo= document.getElementById("whatsappInfo");
+//                 var addressInfo= document.getElementById("addressInfo");
 
-                nameInfo.value=name;
-                emailInfo.value=email;
-                phoneInfo.value=phone;
-                whatsappInfo.value=whatsapp;
-                addressInfo.value=address;
+//                 nameInfo.value=name;
+//                 emailInfo.value=email;
+//                 phoneInfo.value=phone;
+//                 whatsappInfo.value=whatsapp;
+//                 addressInfo.value=address;
 
-                var userDet= document.querySelector("#userDetails");
-                var orderDet= document.querySelector("#orderDetails");
-                var order_btn= document.querySelector("#order_btn");
-                userDet.style.display="none";
-                order_btn.style.display="none"
-                orderDet.style.display="block";
-            }
-            else{
-                alert("Include Valid Details")
-            }
-        }
+//                 var userDet= document.querySelector("#userDetails");
+//                 var orderDet= document.querySelector("#orderDetails");
+//                 var order_btn= document.querySelector("#order_btn");
+//                 userDet.style.display="none";
+//                 order_btn.style.display="none"
+//                 orderDet.style.display="block";
+//             }
+//             else{
+//                 alert("Include Valid Details")
+//             }
+//         }
 
     
-}
-    function h(){
-        var orderDet= document.querySelector("#orderDetails");
-        var order_btn= document.querySelector("#order_btn");
-        var cart= document.querySelector(".cart_cards");
-        order_btn.style.display="flex"
-        orderDet.style.display="none";
-        cart.style.display="block";
-    }
+// }
+    // function h(){
+    //     var orderDet= document.querySelector("#orderDetails");
+    //     var order_btn= document.querySelector("#order_btn");
+    //     var cart= document.querySelector(".cart_cards");
+    //     order_btn.style.display="flex"
+    //     orderDet.style.display="none";
+    //     cart.style.display="block";
+    // }
  
 
     return (
+        <div className="main_cart">
         <>
         <Nav></Nav>
-        <CartLink></CartLink>
+        {/* <CartLink></CartLink> */}
         <p className="message_cart">{message}</p>
-        <div className="main_cart">
-            <div className="cart_cards">
+            <div className="cart_card">
                 {product.map((val,i)=>{
-                    function al(val){
-                        if(true){
-                            if(val.discount){
-                                cutPrice=val.price;
-                                mainPrice= val.cut_price;
-                                rate=val.cut_price;
-                            }
-                            else if(val.sell){
-                                cutPrice=val.price;
-                                mainPrice= val.sell_price;
-                                rate=val.sell_price;
-                            }
-                            else{
-                                cutPrice="";
-                                mainPrice= val.price
-                                rate=val.price;
-                            }
-                        }
-                    };
-                    al(val);
-                    if(val.discount){
-                        return(
+                    return(
                         <>
-                            <div className="cart_card" key={i}>
+                            <div className="carts_card" key={i}>
                                 <div className="can">
                                     <CloseIcon id="cart_close" onClick={()=>{cancel(val._id)}}></CloseIcon>
                                 </div>
@@ -215,68 +208,112 @@ function det(){
                                             <img src={val.main_img.link} alt="images" />
                                         </div>
                                         <div className="cart_title"> 
-                                            <p>{val.title}</p>
-                                            <p>Price: <span style={{color: 'black',}}>{mainPrice} <s className="cart_price">{cutPrice}</s> </span> </p>
+                                            <p className="t">{c_tr(val.title,20)}</p>
+                                            <p id="cart_des">{c_tr(val.des,90)}</p>
+                                            <p><span style={{color:"grey"}}>Category: </span>{val.category}</p>
+                                            <p><span style={{color:"grey"}}>Language: </span>{val.language}</p>
                                         </div>
                                 </div>
                                 </a>
-                                
-                                        <div className="ex"> 
-                            <p><StarIcon style={s}/><StarIcon style={s}/>DISCOUNT<StarIcon style={s}/><StarIcon style={s}/></p>
-                                        </div>
                              </div>
                         </>
                     )
+                    // function al(val){
+                    //     if(true){
+                    //         if(val.discount){
+                    //             cutPrice=val.price;
+                    //             mainPrice= val.cut_price;
+                    //             rate=val.cut_price;
+                    //         }
+                    //         else if(val.sell){
+                    //             cutPrice=val.price;
+                    //             mainPrice= val.sell_price;
+                    //             rate=val.sell_price;
+                    //         }
+                    //         else{
+                    //             cutPrice="";
+                    //             mainPrice= val.price
+                    //             rate=val.price;
+                    //         }
+                    //     }
+                    // };
+                    // al(val);
+                    // if(val.discount){
+                    //     return(
+                    //     <>
+                    //         <div id="cart_card" key={i}>
+                    //             <div className="can">
+                    //                 <CloseIcon id="cart_close" onClick={()=>{cancel(val._id)}}></CloseIcon>
+                    //             </div>
+                    //             <a href={`/view/${val._id}`} className="cart_link">
+                    //             <div className="cart_det">
+                    //                 <div className="cart_img">
+                    //                         <img src={val.main_img.link} alt="images" />
+                    //                     </div>
+                    //                     <div className="cart_title"> 
+                    //                         <p>{val.title}</p>
+                    //                         <p>Price: <span style={{color: 'black',}}>{mainPrice} <s className="cart_price">{cutPrice}</s> </span> </p>
+                    //                     </div>
+                    //             </div>
+                    //             </a>
+                                
+                    //                     <div className="ex"> 
+                    //         <p><StarIcon style={s}/><StarIcon style={s}/>DISCOUNT<StarIcon style={s}/><StarIcon style={s}/></p>
+                    //                     </div>
+                    //          </div>
+                    //     </>
+                    // )
 
-                    }
-                    else if(val.sell){
-                        return(
-                            <>
-                                <div className="cart_card" key={i}>
-                                    <div className="can">
-                                        <CloseIcon id="cart_close" onClick={()=>{cancel(val._id)}}></CloseIcon>
-                                    </div>
-                                    <a href={`/view/${val._id}`} className="cart_link">
-                                    <div className="cart_det">
-                                        <div className="cart_img">
-                                                <img src={val.main_img.link} alt="images" />
-                                            </div>
-                                            <div className="cart_title"> 
-                                                <p>{val.title}</p>
-                                                <p>Price: <span style={{color: 'black',}}>{mainPrice} <s className="cart_price">{cutPrice}</s> </span> </p>
-                                            </div>
-                                    </div>
-                                    </a>
+                    // }
+                    // else if(val.sell){
+                    //     return(
+                    //         <>
+                    //             <div className="cart_card" key={i}>
+                    //                 <div className="can">
+                    //                     <CloseIcon id="cart_close" onClick={()=>{cancel(val._id)}}></CloseIcon>
+                    //                 </div>
+                    //                 <a href={`/view/${val._id}`} className="cart_link">
+                    //                 <div className="cart_det">
+                    //                     <div className="cart_img">
+                    //                             <img src={val.main_img.link} alt="images" />
+                    //                         </div>
+                    //                         <div className="cart_title"> 
+                    //                             <p>{val.title}</p>
+                    //                             <p>Price: <span style={{color: 'black',}}>{mainPrice} <s className="cart_price">{cutPrice}</s> </span> </p>
+                    //                         </div>
+                    //                 </div>
+                    //                 </a>
                                     
-                                    <div className="ex"> 
-                            <p><StarHalfIcon style={s}/><StarHalfIcon style={s}/>SELL<StarHalfIcon style={s}/><StarHalfIcon style={s}/></p>
-                                        </div>
-                                 </div>
-                            </>
-                        )
-                    }
-                    else{
-                        return(
-                            <>
-                                <div className="cart_card" key={i}>
-                                    <div className="can">
-                                        <CloseIcon id="cart_close" onClick={()=>{cancel(val._id)}}></CloseIcon>
-                                    </div>
-                                    <a href={`/view/${val._id}`} className="cart_link">
-                                    <div className="cart_det">
-                                        <div className="cart_img">
-                                                <img src={val.main_img.link} alt="images" />
-                                            </div>
-                                            <div className="cart_title"> 
-                                                <p>{val.title}</p>
-                                                <p>Price: <span style={{color: 'black',}}>{mainPrice} <s className="cart_price">{cutPrice}</s> </span> </p>
-                                            </div>
-                                    </div>
-                                    </a>
-                                 </div>
-                            </>
-                        )
-                    }
+                    //                 <div className="ex"> 
+                    //         <p><StarHalfIcon style={s}/><StarHalfIcon style={s}/>SELL<StarHalfIcon style={s}/><StarHalfIcon style={s}/></p>
+                    //                     </div>
+                    //              </div>
+                    //         </>
+                    //     )
+                    // }
+                    // else{
+                    //     return(
+                    //         <>
+                    //             <div className="cart_card" key={i}>
+                    //                 <div className="can">
+                    //                     <CloseIcon id="cart_close" onClick={()=>{cancel(val._id)}}></CloseIcon>
+                    //                 </div>
+                    //                 <a href={`/view/${val._id}`} className="cart_link">
+                    //                 <div className="cart_det">
+                    //                     <div className="cart_img">
+                    //                             <img src={val.main_img.link} alt="images" />
+                    //                         </div>
+                    //                         <div className="cart_title"> 
+                    //                             <p>{val.title}</p>
+                    //                             <p>{val.category}</p>
+                    //                             <p>{val.language}</p>
+                    //                         </div>
+                    //                 </div>
+                    //                 </a>
+                    //              </div>
+                    //         </>
+                    //     )
+                    // }
                         // return(
                         //     <>
                         //         <div className="cart_card" key={i}>
@@ -306,8 +343,7 @@ function det(){
             
            
             
-        </div>
-        <div className="buy_btn">
+        {/* <div className="buy_btn">
                 <Button id="order_btn" onClick={()=>{show()}}>BUY</Button>
          </div>
          
@@ -407,12 +443,13 @@ function det(){
                     <div className="cart_btns">
                         <button type="submit">PLACE ORDER</button>
                     </div>
-        </form>
-        </div>
+        </form> */}
+        {/* </div> */}
         
      <div id="snackbar"></div>
         
         </>
+        </div>
     )
 }
 

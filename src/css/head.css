@@ -1,6 +1,8 @@
 body {
   font-family: Arial;
   margin: 0;
+  background-color: black;
+  color: white;
 }
 
 * {
@@ -44,21 +46,23 @@ img {
   height: 450px;
 }
 .detail{
-  flex: .35;
   margin: .5%;
+}
+.views_det{
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .views_title{
-  margin-top: 2%;
+  flex: .60;
 }
 .views_title>p{
-  color: black;
-  font-size: 130%;
+  color: white;
+  font-size: 1.7rem;
+  width: 80%;
+  height: auto;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
   text-transform: capitalize;
+  margin-left: 25px;
 }
 .views_del>p{
   color: black;
@@ -66,8 +70,8 @@ img {
   font-family: sans-serif;
 }
 .views_button{
-  margin-top: 2%;
   display: flex;
+  flex: .40;
   justify-content: space-between;
   transition: all .3s;
 }
@@ -80,6 +84,10 @@ img {
   margin: 1%;
   cursor: pointer;
   transition: all .3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
 }
 .views_btn:hover{
   background-color: #000080;

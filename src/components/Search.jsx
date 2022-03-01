@@ -1,6 +1,6 @@
 import React,{useState, useEffect } from 'react'
 import {useHistory} from "react-router-dom";
-import "../css/card.css";
+import "../css/cardSearch.css"
 import "../css/searchPage.css";
 //IMPORTED MODULES
 import Cards from "./Cards.jsx"
@@ -20,7 +20,7 @@ const Search = () => {
                 var values= s.join(" ")
                 var value= JSON.stringify(values)
                 setSearchValue(value)
-                var res= await fetch("https://tmword.herokuapp.com/search", {
+                var res= await fetch("https://streamback.herokuapp.com/search", {
                     method:"post", 
                     mode:"cors",
                     credentials:"include",
@@ -34,6 +34,7 @@ const Search = () => {
                 //     body: JSON.stringify({values})
                 // });
                 var data= await res.json()
+                console.log(data)
                 setLocal(data.findLocal);
             }
             catch{
@@ -43,6 +44,7 @@ const Search = () => {
         Find();
     }, [])
     return (
+        <div className="main_search">
         <>
         <Nav></Nav>
         <SubNav></SubNav>
@@ -50,16 +52,17 @@ const Search = () => {
                 <p><span class="first_letter">f</span>ound <span class="first_letter">r</span>esults <span class="first_letter">f</span>or: <span class="search_value">{searchValue}</span></p>
             </div>
             <div className="card_div">
-                 <div className="card">
+                 <div className="card_search">
                 {local.map((val,i)=>{
                         return(
-                            <Cards key={i} data={val}/>
+                            <Cards key={i} data={val} cl={"cards_search"}/>
                         )
                     })}
                     </div>
                     
             </div>
         </>
+        </div>
     )
 }
 

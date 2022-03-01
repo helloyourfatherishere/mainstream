@@ -6,13 +6,19 @@ const SubNav = () => {
     useEffect(()=>{
         let find = async function(){
             try{
-                let data= await fetch("https://tmword.herokuapp.com/main",{
+                let data= await fetch("https://streamback.herokuapp.com/main",{
                     method:'post',
                     mode:"cors",
                     credentials:"include",
                     headers:{"Content-Type": "application/json"},
                     body: ""
                 });
+                // let data= await fetch("/main",{
+                //     method:'post',
+                //     credentials:"include",
+                //     headers:{"Content-Type": "application/json"},
+                //     body: ""
+                // });
                 let res= await data.json()
                 let c= res.main_data.cate[0].split(",")
                 setData(res.main_data)

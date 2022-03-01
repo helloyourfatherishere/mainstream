@@ -4,6 +4,7 @@ import {useHistory} from "react-router-dom"
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import "../css/createaccount.css";
+import Nav from"./Nav.jsx";
 import { NavLink } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,9 +30,6 @@ const CreateAccount = () => {
       let email= document.querySelector("#email").value;
       let pass= document.querySelector("#pass").value;
       let name= document.querySelector("#name").value;
-      let contact_email= document.querySelector("#contact_email").value;
-      let phone= document.querySelector("#phone").value;
-      let address= document.querySelector("#address").value;
       let security_code= document.querySelector("#security_code").value;
       let verify_email;
       let verify_pass;
@@ -60,13 +58,21 @@ const CreateAccount = () => {
       if(verify_email && verify_pass && verify_security_code){
           var signup= async function(){
             try{
-              var data= await fetch("https://tmword.herokuapp.com/signup",{
+              var data= await fetch("https://streamback.herokuapp.com/signup",{
                 method: "post",
                 mode:"cors",
                 credentials:"include",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({email, pass, name, contact_email, phone, address, security_code})
+                body: JSON.stringify({email, pass, name, security_code})
               });
+
+            
+            // var data= await fetch("/signup",{
+            //   method: "post",
+            //   credentials:"include",
+            //   headers: {"Content-Type": "application/json"},
+            //   body: JSON.stringify({email, pass, name, security_code})
+            // });
               
               // var data= await fetch("/signup",{
               //   method: "post",
@@ -89,30 +95,28 @@ const CreateAccount = () => {
     } 
     return (
         <>
-        <div className="main">
+        <div className="main_acc">
+          <Nav></Nav>
         <div className="heading_div">
                 <p>Create Account</p>
+                <p id="acc_message">Create Your Account First..</p>
             </div>
             <div className="form_div">
             <form className={classes.root} id="form_div" noValidate autoComplete="off" method="post" action="/abc">
                 <div id="sec1">
+                <TextField className="account_input" id="name" required="true" style={input_style} label="Name"type="text" variant="outlined" name="name" autoComplete="off" />
                 <TextField className="account_input"  id="email" required="true" style={input_style} label="Email" type="email" variant="outlined" name="email" autoComplete="off" />
                 <TextField className="account_input"  id="pass" required="true" style={input_style} label="Password" type="password" variant="outlined" name="pass" autoComplete="off" />
+                <TextField className="account_input" id="security_code" required="true" style={input_style} label="Security Key" type="password" variant="outlined" name="securoty_code" autoComplete="off" />
                 <div className="sub_link">
                   <NavLink exact to="/login">login</NavLink>
                 </div>
-                </div>
                 
-                <div id="sec2">
-                <TextField className="account_input" id="name" required="true" style={input_style} label="Name"type="text" variant="outlined" name="name" autoComplete="off" />
-                <TextField className="account_input" id="contact_email" required="true" style={input_style} label="Contact Email" type="email" variant="outlined" name="contact_email" autoComplete="off" />
-                <TextField className="account_input" id="phone" required="true" style={input_style} label="Phone No" type="tel" variant="outlined" name="phone"/>
-                <TextField className="account_input" id="address" required="true" style={input_style} label="Address" type="text" variant="outlined" name="address" autoComplete="off" />
-                <TextField className="account_input" id="security_code" required="true" style={input_style} label="Security Key" type="password" variant="outlined" name="securoty_code" autoComplete="off" />
                 <div className="sub_link">
                 <Button variant="contained" color="primary" id="submit_btn" onClick={()=>{sub()}}>Submit</Button>
                 </div>
                 </div>
+                
             </form>
             </div>
         </div>

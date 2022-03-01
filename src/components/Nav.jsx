@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import More from "../components/More.jsx"
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import {NavLink} from "react-router-dom"
 //IMPORTED MODULES
 import Category from "./Category"
@@ -46,7 +47,7 @@ const Nav = ({verify}) => {
             </div>
             <div className="nav">
                 <div className="logo">
-                    <NavLink exact to="/" style={{color: 'black', textDecoration: 'none', background: 'none'}} activeClassName=""><h1>NVISION</h1></NavLink>
+                    <NavLink exact to="/" style={{color: 'white', textDecoration: 'none', background: 'none'}} activeClassName=""><h1>NVISION</h1></NavLink>
                 </div>
 
                 <div className="search_box">
@@ -66,8 +67,8 @@ const Nav = ({verify}) => {
                                 nav.style.display="none";
                                 s.style.display= "flex";
                                 }}><SearchIcon /></Button>
-                            <Button style={buttons} id="btns"><a href="/cart" id="cart_link"><ShoppingCartOutlinedIcon style={buttons}></ShoppingCartOutlinedIcon></a></Button>
-                            <Button style={buttons} id="btns"><More style={buttons}></More></Button>
+                            <Button style={buttons} id="btns"><a href="/watch" id="cart_link"><VideoLibraryIcon style={buttons}></VideoLibraryIcon></a></Button>
+                            <Button style={buttons} id="btns"><More style={buttons}></More></Button>{}
                             <Button style={buttons} id="btns"><Category style={buttons}></Category></Button>
                 </div>
                 </div>

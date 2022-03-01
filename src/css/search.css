@@ -8,14 +8,16 @@
     display: flex;
     width: 100%;
     height: 6vh;
-    background-color:  #F0F0F0;
+    background-color:  black;
     display: none;
     transform: all .2s ;
+    border-bottom: .5px solid white;
+    margin-bottom: 1%;
 }
 
 #btn{
     height: auto;
-    width: 5%;
+    width: 3%;
     height: auto;
     border-radius: 100%;
     display: inline-block;
@@ -24,6 +26,7 @@
     align-items: center;
     justify-content: center;
     padding: 0;
+    color: white;
 }
 form{
     width: 100%;

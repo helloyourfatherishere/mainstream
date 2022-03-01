@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme) => ({
 
 var btn={
     height: '10vh',
-    width: '150%'
+    width: '150%',
+    color:"rgb(116, 116, 116)"
 }
 
 const SearchField = () => {
@@ -23,7 +24,7 @@ const SearchField = () => {
         <div className="s">
                 <Button id="btn"><KeyboardBackspaceIcon style={btn} onClick={()=>{var s= document.querySelector(".s"); s.style.display= 'none';}}/></Button>
                 <form action="/search" method="get">
-                    <input type="search" class="d" name="search" id="search" placeholder="search here.." autoComplete="off"/>
+                    <input type="search" className="d" name="search" id="search" placeholder="search here.." autoComplete="off"/>
                 </form>
         </div>
             

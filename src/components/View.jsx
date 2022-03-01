@@ -8,148 +8,151 @@ import Images from './Images'
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import Error from "./Error.jsx"
 import "../css/cart.css";
+import  img from "../images/icon.jpg"
 import Button from '@material-ui/core/Button';
 import CloseIcon from '@material-ui/icons/Close';
 import TextField from '@material-ui/core/TextField';
 
 
-var input_style={
-    width: '100%',
-    margin: 'auto, 5%',
-    marginTop:'10px',
-    height: 'auto'
-}
+// var input_style={
+//     width: '100%',
+//     margin: 'auto, 5%',
+//     marginTop:'10px',
+//     height: 'auto'
+// }
 
-var s={
-    fontSize: '15px'
-}
-var last;
-function hide(){
-    var user_div= document.querySelector("#userDetails")
-    user_div.style.display="none";
-}
-function det(){
-    var name= document.getElementById("name").value;
-    var email= document.getElementById("email").value;
-    var phone= document.getElementById("phone").value;
-    var whatsapp= document.getElementById("whatsapp").value;
-    var address= document.getElementById("address").value;
+// var s={
+//     fontSize: '15px'
+// }
+// var last;
+// function hide(){
+//     var user_div= document.querySelector("#userDetails")
+//     user_div.style.display="none";
+// }
+// function det(){
+//     var name= document.getElementById("name").value;
+//     var email= document.getElementById("email").value;
+//     var phone= document.getElementById("phone").value;
+//     var whatsapp= document.getElementById("whatsapp").value;
+//     var address= document.getElementById("address").value;
 
-    var verify_email
-    if(!email.includes("@")){
-        alert("Include Valid Email")
-        verify_email= false
-    }
-    else{
-            verify_email= true
-            if(name.length>5 && verify_email && phone.length>8 && address.length>10){
+//     var verify_email
+//     if(!email.includes("@")){
+//         alert("Include Valid Email")
+//         verify_email= false
+//     }
+//     else{
+//             verify_email= true
+//             if(name.length>5 && verify_email && phone.length>8 && address.length>10){
 
-                var nameInfo= document.getElementById("nameInfo");
-                var emailInfo= document.getElementById("emailInfo");
-                var phoneInfo= document.getElementById("phoneInfo");
-                var whatsappInfo= document.getElementById("whatsappInfo");
-                var addressInfo= document.getElementById("addressInfo");
+//                 var nameInfo= document.getElementById("nameInfo");
+//                 var emailInfo= document.getElementById("emailInfo");
+//                 var phoneInfo= document.getElementById("phoneInfo");
+//                 var whatsappInfo= document.getElementById("whatsappInfo");
+//                 var addressInfo= document.getElementById("addressInfo");
 
-                nameInfo.value=name;
-                emailInfo.value=email;
-                phoneInfo.value=phone;
-                whatsappInfo.value=whatsapp;
-                addressInfo.value=address;
+//                 nameInfo.value=name;
+//                 emailInfo.value=email;
+//                 phoneInfo.value=phone;
+//                 whatsappInfo.value=whatsapp;
+//                 addressInfo.value=address;
                 
-                var userDet= document.querySelector("#userDetails");
-                var orderDet= document.querySelector("#orderDetails")
-                userDet.style.display="none";
-                orderDet.style.display="block";
-            }
-            else{
-                alert("Include Valid Details")
-            }
-        }
+//                 var userDet= document.querySelector("#userDetails");
+//                 var orderDet= document.querySelector("#orderDetails")
+//                 userDet.style.display="none";
+//                 orderDet.style.display="block";
+//             }
+//             else{
+//                 alert("Include Valid Details")
+//             }
+//         }
 
     
-}
+// }
     
-function h(){
-        var orderDet= document.querySelector("#orderDetails");
-        orderDet.style.display="none";
-    }
-async function place(e){
-    try{
-    e.preventDefault()
-    let id= e.target[0].value
-    let img= e.target[1].value
-    let title= e.target[2].value
-    let price= e.target[3].value
-    let quantity= e.target[4].value
-    let colors= e.target[5].value
-    let sizes= e.target[6].value
-    let name= e.target[7].value
-    let email= e.target[8].value
-    let phone= e.target[9].value
-    let whatsapp= e.target[10].value
-    let address= e.target[11].value
-    let paymentMethod= e.target[12].value
-    let message= e.target[13].value
+// function h(){
+//         var orderDet= document.querySelector("#orderDetails");
+//         orderDet.style.display="none";
+//     }
+// async function place(e){
+//     try{
+//     e.preventDefault()
+//     let id= e.target[0].value
+//     let img= e.target[1].value
+//     let title= e.target[2].value
+//     let price= e.target[3].value
+//     let quantity= e.target[4].value
+//     let colors= e.target[5].value
+//     let sizes= e.target[6].value
+//     let name= e.target[7].value
+//     let email= e.target[8].value
+//     let phone= e.target[9].value
+//     let whatsapp= e.target[10].value
+//     let address= e.target[11].value
+//     let paymentMethod= e.target[12].value
+//     let message= e.target[13].value
 
-    let orderDiv= document.getElementById("orderDetails");
-    orderDiv.style.display="none"
-    let o= await fetch("https://tmword.herokuapp.com/order/unregistered",{
-        method: 'post',
-        mode:"cors",
-        credentials:"include",
-        headers:{"Content-Type": "application/json"},
-        body:JSON.stringify({paymentMethod, id, price, img, title, quantity, colors, sizes, message, name, email, phone, whatsapp, address}) 
+//     let orderDiv= document.getElementById("orderDetails");
+//     orderDiv.style.display="none"
+//     let o= await fetch("https://tmword.herokuapp.com/order/unregistered",{
+//         method: 'post',
+//         mode:"cors",
+//         credentials:"include",
+//         headers:{"Content-Type": "application/json"},
+//         body:JSON.stringify({paymentMethod, id, price, img, title, quantity, colors, sizes, message, name, email, phone, whatsapp, address}) 
 
-    })
-    let r= await o.json();
-    console.log(r)
-    if(r){
+//     })
+//     let r= await o.json();
+//     console.log(r)
+//     if(r){
 
-        var x = document.getElementById("snackbar");
-        x.className = "show";
-        x.textContent="Order Placed"
-        x.style.display="block"
-        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-    }
-    else{
+//         var x = document.getElementById("snackbar");
+//         x.className = "show";
+//         x.textContent="Order Placed"
+//         x.style.display="block"
+//         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+//     }
+//     else{
 
-        var x = document.getElementById("snackbar");
-        x.className = "show";
-        x.textContent="Order Placed"
-        x.style.display="block"
-        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-    }
-    }
-    catch(err){
-    }
-}
+//         var x = document.getElementById("snackbar");
+//         x.className = "show";
+//         x.textContent="Order Placed"
+//         x.style.display="block"
+//         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+//     }
+//     }
+//     catch(err){
+//     }
+// }
 const View = () => {
     var {id}= useParams();
     var [data, setData]= useState([]);
     var [more, setMore]= useState([]);
-    var [images ,setImages]= useState([])
+    var [image ,setImage]= useState([])
+    var [video ,setVideo]= useState([])
     var [table ,setTable]= useState([])
     var [comments ,setComments]= useState([])
     var [d ,setD]= useState([])
     var [comm ,setComm]= useState("")
     var [find ,setFind]= useState(null)
+    var [user ,setUser]= useState(null)
     
-    var cutPrice;
-    var mainPrice;
-    var rate;
-    var name;
-    var email;
-    var phone;
-    var whatsapp;
-    var address;
+    // var cutPrice;
+    // var mainPrice;
+    // var rate;
+    // var name;
+    // var email;
+    // var phone;
+    // var whatsapp;
+    // var address;
 
-    var a;
+    // var a;
 
  var sub = async function(){
         try{
             let com= document.getElementById("comment")
             let comment= com.value
-            let d= await fetch(`https://tmword.herokuapp.com/comment/${id}`,{
+            let d= await fetch(`https://streamback.herokuapp.com/comment/${id}`,{
                 method: 'post',
                 headers:{"Content-Type": "application/json"},
                 mode:"cors",
@@ -157,6 +160,15 @@ const View = () => {
                 body:JSON.stringify({comment: com.value}) 
 
             })
+            
+            // let d= await fetch(`/comment/${id}`,{
+            //     method: 'post',
+            //     headers:{"Content-Type": "application/json"},
+            //     mode:"cors",
+            //     credentials:"include",
+            //     body:JSON.stringify({comment: com.value}) 
+
+            // })
             let r= await d.json();
             if(r){
                 com.value=""
@@ -179,22 +191,41 @@ const View = () => {
         let isMounted = true; 
         var findData= async function(){
             try{
-                let data= await fetch(`https://tmword.herokuapp.com/view/${id}`,{
+                let data= await fetch(`https://streamback.herokuapp.com/view/${id}`,{
                     method:"post",
                     mode:"cors",
                     credentials:"include",
                     headers:{"Content-Type":"application/json"},
                     body:""
                 });
+                let u= await fetch(`https://streamback.herokuapp.com/verify_user`,{
+                    method:"get",
+                    mode:"cors",
+                    credentials:"include",
+                });
+                // let data= await fetch(`/view/${id}`,{
+                //     method:"post",
+                //     credentials:"include",
+                //     headers:{"Content-Type":"application/json"},
+                //     body:""
+                // });
+                // let u= await fetch(`/verify_user`,{
+                //     method:"get",
+                // });
                 // let data= await fetch(`/view/${id}`);
                 let res= await data.json();
-                setFind(res.find)
+                let user= await u.json();
+                console.log(user)
+                setUser(user.verify_user)
+                setFind(res)
                 if(isMounted){
                      if(res.find){
                             setData(res.data)
-                            setImages(res.data.images)
+                            // setImages(res.data.images)
                             setMore(res.more)
                             setD([res.data])
+                            setImage(res.data.main_img.link)
+                            setVideo(res.data.main_video.link)
                             setComments(res.data.comments)
                             var t= res.data.table.split(";")
                             
@@ -213,13 +244,23 @@ const View = () => {
         
     }, [comm]);
      
-    if(find){
+    if(find && user){
         return (
             <>
             <Nav></Nav>
             <div className="view_main">
+            <div class="responsive-container">
+                        <iframe src={video} frameborder="0" scrolling="no" seamless="" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="fullscreen"></iframe>
+                        <div style={{"width": "80px", "height": "80px", "position": "absolute", "backgroundColor": "black", "right": "0px", "top": "0px", "display": "flex", "alignItems": "center", "justifycontent": "center",}}>
+                             <img src={img} alt="avc" style={{"width": "100%", "height": "100%",}} />
+                        </div>
+            
+                    </div>
                     {/* HEADING IMAGES */}
-                    <div className="view_img">
+                    
+                    <Heading data={data}></Heading>
+
+                    {/* <div className="view_img">
                         <div className="main_view">
                             <div className="view_imgs">
                                 <div className="container">
@@ -228,20 +269,23 @@ const View = () => {
                                 <Heading data={data}></Heading>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     
+
+                    
+                    
+
+  
                     {/* DESCRIPTIONS AND NOTICE */}
                     <div className="view_des">
     
                         <div className="view_description">
     
                             <div className="descript">
-                                <p><b>Description:</b> {data.des}</p>
-                            </div><br />
-    
-                            <div className="view_note">
-                                <p><b>Notice:</b> {data.note}</p>
+                                <p><b style={{color:"grey", fontSize:"1.5rem"}}>Description:</b> {data.des}</p>
                             </div>
+                            <br />
+    
     
                         </div>
     
@@ -278,7 +322,7 @@ const View = () => {
                             {more.map((val, i)=>{
                                 return(
                                     <>
-                                    <Cards data={val}></Cards>
+                                    <Cards data={val} cl={"cards"}></Cards>
                                     </>
                                 )
                             })}
@@ -319,125 +363,7 @@ const View = () => {
                                     })}
                         </div>
                 </div>
-                <div id="snackbar"></div>
-                
-                <div class="userDetails" id="userDetails">
-                <form>
-                    <h1 align="center">Add Your Details</h1>
-                    <CloseIcon id="close_details" onClick={()=>{hide()}}></CloseIcon>
-                <TextField  id="name" required={true} style={input_style} label="Name" type="text" variant="outlined" autoComplete="off" />
-                <TextField  id="email" required={true} style={input_style} label="Email" type="email" variant="outlined" autoComplete="off" />
-                <TextField  id="phone" required={true} style={input_style} label="Phone No" type="tel" variant="outlined" autoComplete="off" />
-                <TextField  id="whatsapp" required={true} style={input_style} label="WhatsApp No" type="tel" variant="outlined" autoComplete="off" />
-                <TextField  id="address" required={true} style={input_style} label="Address" type="text" variant="outlined" autoComplete="off" />
-                <div className="add_btn">
-                <Button id="add_btn" onClick={()=>{det()}}>Add</Button>
-                </div>
-            </form>
-            </div>
-            
-                    <div className="orderDetails" id="orderDetails">
-                        <form action={"/order/unregistered"} method="post" onSubmit={place}>
-                        <div className="cart_order_head">
-                                <div className="cart_total">
-                                </div>  
-                                <div className="cart_cancel">
-                                    <CloseIcon id="cancel_det" onClick={()=>{h()}}></CloseIcon>
-                                </div>
-                            </div>
-                    {d.map((val, i)=>{
-                    let colors= val.colors.split(",");
-                    let sizes= val.sizes.split(",");
-                    function all(val){
-                        if(true){
-                            if(val.discount){
-                                cutPrice=val.price;
-                                mainPrice= val.cut_price;
-                                rate=val.cut_price;
-                            }
-                            else if(val.sell){
-                                cutPrice=val.price;
-                                mainPrice= val.sell_price;
-                                rate=val.sell_price;
-                            }
-                            else{
-                                cutPrice="";
-                                mainPrice= val.price
-                                rate=val.price;
-                            }
-                        }
-                    };
-                    all(val);
-                    return(
-                        <>
-                        <div className="allDet">
-                            <div className="title_img">
-                            <div className="cart_order_img">  
-                                <img src={val.main_img.link} alt="image" />
-                            </div>  
-                            <div className="cart_order_title">
-                                <p>{val.title}</p>
-                                <p>Price: <span style={{color: 'black',}}>{mainPrice} <s className="cart_price">{cutPrice}</s> </span> </p>
-                            </div>
-                                
-                            </div>
-                            <div className="cart_order_all_input">
-                            <input type="hidden" name="id" id={`product${i}`} value={val._id} />
-                        <input type="hidden" name="img" id={`product${i}`} value={val.main_img.link} />
-                        <input type="hidden" name="title" id={`product${i}`} value={val.title} />
-                        <input type="hidden" name="price" id={`product${i}`} value={mainPrice} />
-                        <input type="number" name="quantity" id={`product${i}`} placeholder="quantity" required="required" className="cart_order_input"onChange={(e)=>{
-                        if(e.target.value<=0){
-                            e.target.value=1
-                        }
-                        if(e.target.value.includes(".")){
-                            e.target.value=Math.round(e.target.value)
-                        }
-                    }}/>
-                        <p className="available_p">Available sizes: <span className="available">{colors.map((val, i)=>{return(val+", ")})}</span></p>
-                        <input type="text" name="colors" id={`product${i}`} placeholder="colours: red, blue..." required="required" list="c" autoComplete="off" className="cart_order_input"/>
-                        <datalist id="c">
-                            {colors.map((val, i)=>{
-                               return(
-                                    <>
-                                        <option value={val}></option>
-                                    </> 
-                               )
-                            })}
-                        </datalist>
-                        <p className="available_p">Available sizes: <span className="available">{sizes.map((val, i)=>{return(val+", ")})}</span></p>
-                        <input type="text" name="sizes" id={`product${i}`} placeholder="size: small, medium..." required="required" autoComplete="off" list="s" className="cart_order_input"/>
-                        <datalist id="s">
-                            {sizes.map((val, i)=>{
-                               return(
-                                    <>
-                                        <option value={val}></option>
-                                    </> 
-                               )
-                            })}
-                        </datalist>
-                              
-                        </div>
-                    </div>
-                       
-                        </>
-                    )
-                })} 
-                        <div className="cart_more">
-                        <input type="hidden" id="nameInfo" name="name" value={name} />
-                        <input type="hidden" id="emailInfo" name="email" value={email} />
-                        <input type="hidden" id="phoneInfo" name="phone" value={phone} />
-                        <input type="hidden" id="whatsappInfo" name="whatsapp" value={whatsapp} />
-                        <input type="hidden" id="addressInfo" name="address" value={address} />
-                        <input type="radio" name="paymentMethod" id="paymentMethod" className="paymentMethod" value="cash on delivery" defaultChecked readOnly required="required" />CASH ON DELIVEY <br /> 
-                        <input type="text" name="message" id="message" className="message" placeholder="add your message" />
-                        </div>
-                        <div className="cart_btns">
-                            <button type="submit" >PLACE ORDER</button>
-                        </div>
-            </form>
-            </div>
-            
+                 <div id="snackbar"></div>         
     
             </div>
             </>
@@ -446,7 +372,7 @@ const View = () => {
     else{
         return(
             <>
-        <Error message="you have just entered an invalid url.. or this product may be temporarily unavailable" valid={true}></Error>
+        <Error message="you must have an account to watch the video or the video may be temporarily unavailable.. plz contact us" valid={true}></Error>
         </>
         )
     }

@@ -14,12 +14,19 @@ const CategoryView = () => {
         setValue(cate)
             var findCate= async function(){
                 try{
-                    var res= await fetch(`https://tmword.herokuapp.com/cate/${cate}`,{
+                    var res= await fetch(`https://streamback.herokuapp.com/cate/${cate}`,{
                         method:"post",
                         mode:"cors",
                         credentials:"include",
                         headers:{"Content-Type":"application/json"}
                     });
+                    
+                    // var res= await fetch(`/cate/${cate}`,{
+                    //     method:"post",
+                    //     mode:"cors",
+                    //     credentials:"include",
+                    //     headers:{"Content-Type":"application/json"}
+                    // });
                     var data= await res.json();
                     setData(data)
                 }
@@ -30,6 +37,7 @@ const CategoryView = () => {
             findCate();
     }, [cate])
     return (
+        <div className="main_search">
         <>
         <Nav></Nav>
         <SubNav></SubNav>
@@ -37,16 +45,17 @@ const CategoryView = () => {
         <p><span class="first_letter">f</span>ound <span class="first_letter">r</span>esults <span class="first_letter">f</span>or: <span class="search_value">{value}</span></p>
             </div>
             <div className="card_div">
-                 <div className="card">
+                 <div className="card_search">
                  {data.map((val,i)=>{
                         return(
-                            <Cards key={i} data={val}/>
+                            <Cards key={i} data={val} cl={"cards_search"}/>
                         )
                     })}
                     </div>
                     
             </div>
         </>
+        </div>
     )
 }
 

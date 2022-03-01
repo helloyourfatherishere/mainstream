@@ -3,6 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+.main_search{
+    background-color: black;
+    max-height: auto;
+    min-height: 100vh;
+}
 .parent_card{
     height: auto;
 }
@@ -14,8 +19,8 @@
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 2rem;
 }
-.card{
-    width: auto;
+.card_search{
+    width: 78%;
     margin: auto 1%;
     display: flex;
     flex-direction: row;
@@ -23,7 +28,7 @@
     flex-wrap: wrap;
     height: auto;
 }
-.cards{
+.cards_search{
     border: 1px solid darkgrey;
     width: 200px;
     user-select: none;
@@ -34,14 +39,14 @@
     border-radius: 5px;
     color: white;
 }
-.cards:hover{
+.cards_search:hover{
     box-shadow: 1px 1px 5px 1px black;
     transform: scale(1.05);
     background-color: #a5a5a5;
     border-radius: 0;
     border: 1px solid darkgray;
 }
-.cards:active{
+.cards_search:active{
     background-color: #ececec;
     box-shadow: 1px 1px 5px 1px #3466fc;
 }
@@ -121,10 +126,10 @@
     margin-bottom: 2%;
 }
 @media only screen and (max-width: 550px) {
-    .card{
+    .card_search{
         justify-content: space-around;
     }
-    .cards{
+    .cards_search{
         border: 1px solid darkgrey;
         width: 170px;
         height: auto;
@@ -168,10 +173,10 @@
 
   
 @media only screen and (max-width: 390px) {
-    .card{
+    .card_search{
         justify-content: space-around;
     }
-    .cards{
+    .cards_search{
         border: 1px solid darkgrey;
         width: 150px;
         height: auto;
@@ -207,10 +212,10 @@
     }
   }
   @media only screen and (max-width: 350px) {
-    .card{
+    .card_search{
         justify-content: space-around;
     }
-    .cards{
+    .cards_search{
         border: 1px solid darkgrey;
         width: 120px;
         height: auto;
@@ -246,10 +251,10 @@
     }
   }
   @media only screen and (max-width: 300px) {
-    .card{
+    .card_search{
         justify-content: space-around;
     }
-    .cards{
+    .cards_search{
         border: 1px solid darkgrey;
         width: 120px;
         height: auto;

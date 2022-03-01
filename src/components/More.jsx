@@ -19,17 +19,38 @@ const useStyles = makeStyles({
 
 function Category (){
   var[v, setV]= useState(null);
+  // var[g, setG]= useState(null);
+  // var[name, setName]= useState(null);
   useEffect(()=>{
     var ver= async function(){
       try{
-        let verify= await fetch("https://tmword.herokuapp.com/verify_user",{
+            let verify= await fetch("https://streamback.herokuapp.com/verify_user",{
                       method:"get",
                       mode:"cors",
                       credentials:"include"
-                  })
-                  let v= await verify.json();
-                  let verified= v.verify_user;
-                  setV(verified)
+            })
+          //   let get_data= await fetch("https://streamback.herokuapp.com/user_data",{
+          //     method:"post",
+          //     mode:"cors",
+          //     credentials:"include"
+          // })
+
+            // let verify= await fetch("/verify_user",{
+            //     method:"get",
+            //     credentials:"include"
+            // })
+          //   let get_data= await fetch("/user_data",{
+          //     method:"post",
+          //     credentials:"include"
+          // })
+            let ve= await verify.json();
+            // let g= await get_data.json();
+            let verified= ve.verify_user;
+            // let get= g.data;
+            // let n=get.name.split(" ")[0]
+            setV(verified)
+            // setG(get)
+            // setName(n)
       }
       catch(e){
   
@@ -67,7 +88,6 @@ function Category (){
         
       </div>
     );
-        
     if(v){
       return (
         <>

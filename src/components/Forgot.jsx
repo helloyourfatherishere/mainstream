@@ -1,6 +1,7 @@
 import React, {useState, useEffect}from 'react'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Nav from "../components/Nav.jsx"
 import "../css/login.css"
 import { NavLink , useHistory, useParams} from 'react-router-dom';
 var input_style={
@@ -38,13 +39,20 @@ const Forgot = () => {
         if(verify_email){
             var signin= async function(){
                 try{
-                    var data= await fetch(`https://tmword.herokuapp.com/forgot/${cate}`,{
+                    var data= await fetch(`https://streamback.herokuapp.com/forgot/${cate}`,{
                         method: 'post',
                         mode:"cors",
                         credentials:"include",
                         headers:{"Content-Type": "application/json"},
                         body:JSON.stringify({email, changeData})
                     });
+                    // var data= await fetch(`/forgot/${cate}`,{
+                    //     method: 'post',
+                    //     credentials:"include",
+                    //     headers:{"Content-Type": "application/json"},
+                    //     body:JSON.stringify({email, changeData})
+                    // });
+
                     var res= await data.json();
                     if(!res){
                         var x = document.getElementById("snackbar");
@@ -76,13 +84,19 @@ const Forgot = () => {
             var changedData= document.querySelector("#changedData").value;
             if(cate==="pass"){
                 if(changedData.length>=8){
-                    let resetData= await fetch(`https://tmword.herokuapp.com/change/${cate}/${email}`,{
+                    let resetData= await fetch(`https://streamback.herokuapp.com/change/${cate}/${email}`,{
                         method: 'post',
                         mode:"cors",
                         credentials:"include",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify({changedData})
                     });
+                    // let resetData= await fetch(`/change/${cate}/${email}`,{
+                    //     method: 'post',
+                    //     credentials:"include",
+                    //     headers: {"Content-Type": "application/json"},
+                    //     body: JSON.stringify({changedData})
+                    // });
                     let result=await resetData.json();
                     if(result){
                         history.push("/")
@@ -97,13 +111,21 @@ const Forgot = () => {
             }
             else{
                 if(changedData.length===4){
-                    let resetData= await fetch(`https://tmword.herokuapp.com/change/${cate}/${email}` ,{
+                    // let resetData= await fetch(`https://tmword.herokuapp.com/change/${cate}/${email}` ,{
+                    //     method: 'post',
+                    //     mode:"cors",
+                    //     credentials:"include",
+                    //     headers: {"Content-Type": "application/json"},
+                    //     body: JSON.stringify({changedData})
+                    // });
+                    
+                    let resetData= await fetch(`/change/${cate}/${email}` ,{
                         method: 'post',
-                        mode:"cors",
                         credentials:"include",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify({changedData})
                     });
+
                     let result= await resetData.json();
                     if(result){
                         history.push("/")
@@ -121,10 +143,17 @@ const Forgot = () => {
     useEffect(()=>{
         var verify= async function(){
             try{
-                let verify_user_login= await fetch("https://tmword.herokuapp.com/verify_user",{
+                // let verify_user_login= await fetch("https://tmword.herokuapp.com/verify_user",{
+                //     method:"get",
+                //     mode:"cors",
+                //     credentials:"include",});
+                
+                let verify_user_login= await fetch("/verify_user",{
                     method:"get",
                     mode:"cors",
-                    credentials:"include",});
+                    credentials:"include",
+                });
+
                 let res_verify_user= await verify_user_login.json();
                 let verifyUser=res_verify_user.verify_user
                 if(verifyUser){
@@ -174,15 +203,16 @@ const Forgot = () => {
     return (
         <>
         <div className="main_login" id="check_form">
+            <Nav></Nav>
                 <div className="login_head">
                     <p className="login_heading">{heading}</p>
-                    <p>{message}</p>
+                    <p className="login_message">{message}</p>
                 </div>
                 <div className="form_login" >
                     <div className="form_div_login">
                         <form>
-                        <TextField  id="email" required="true" style={input_style} label="Email" type="email" variant="outlined" name="email" autoComplete="off" />
-                        <TextField  id="change_data" required="true" style={input_style} label={place} type="password" variant="outlined" name={id} autoComplete="off" />
+                        <TextField className="login_input" id="email" required="true" style={input_style} label="Email" type="email" variant="outlined" name="email" autoComplete="off" />
+                        <TextField className="login_input" id="change_data" required="true" style={input_style} label={place} type="password" variant="outlined" name={id} autoComplete="off" />
                         </form>
                     </div>
                     <div className="login_links">
