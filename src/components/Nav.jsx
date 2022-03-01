@@ -47,7 +47,7 @@ const Nav = ({verify}) => {
             </div>
             <div className="nav">
                 <div className="logo">
-                    <NavLink exact to="/" style={{color: 'white', textDecoration: 'none', background: 'none'}} activeClassName=""><h1>NVISION</h1></NavLink>
+                    <NavLink exact to="/" style={{color: 'white', textDecoration: 'none', background: 'none'}} activeClassName=""><h1>PINEX</h1></NavLink>
                 </div>
 
                 <div className="search_box">
