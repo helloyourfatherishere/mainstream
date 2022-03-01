@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import Nav from './Nav';
 import "../css/error.css"
-const Error = ({message, valid}) => {
+const Error = ({message, valid,path,title}) => {
     var [v, setV]= useState(false)
     useEffect(()=>{
         setV(valid)
@@ -22,11 +22,11 @@ const Error = ({message, valid}) => {
                 <div className="main">
                     <div className="err_div">
                         <div className="message_err_div">
-                            <p>{message}</p>
+                            <p align="center">{message}</p>
                         </div>
     
                         <div className="btn_err_div">
-                                <NavLink exact to="/">Go To Home</NavLink>
+                                <NavLink exact to={path}>{title}</NavLink>
                         </div>
                     </div>
                 </div>

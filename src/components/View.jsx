@@ -244,7 +244,22 @@ const View = () => {
         
     }, [comm]);
      
-    if(find && user){
+    if(!find || find==false){
+        return(
+            <>
+        <Error message="video may be temporarily unavailable or the link you entered is invalid.. plz contact us" valid={true} path={"/"} title={"Go to Home"}></Error>
+        </>
+        )
+    }
+    else if(!user || user==false){
+        return(
+        <>
+        <Error message="you must have an account to watch the video, log into your account" valid={true} path={"/login"} title={"Login"}></Error>
+        </>
+        )
+
+    }
+    else{
         return (
             <>
             <Nav></Nav>
@@ -367,13 +382,6 @@ const View = () => {
     
             </div>
             </>
-        )
-    }
-    else{
-        return(
-            <>
-        <Error message="you must have an account to watch the video or the video may be temporarily unavailable.. plz contact us" valid={true}></Error>
-        </>
         )
     }
     
